@@ -35,7 +35,11 @@ public class SelectionManager : MonoBehaviour
             return;
         }
 
-        OnGroundSelected?.Invoke(worldPos);
+        if (ContainsComponentOfType<Ground>(hits, out var _))
+        {
+            OnGroundSelected?.Invoke(worldPos);
+            return;
+        }
     }
 
     private bool ContainsComponentOfType<T>(Collider2D[] hits, out T target) where T : Component
