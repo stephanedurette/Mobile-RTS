@@ -923,7 +923,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
   inputType: 0
-  OnRelease:
+  maxInputDragDistance: 10
+  OnCursorDown:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCursorUp:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 839528220}
@@ -1593,7 +1597,7 @@ Tilemap:
       - {fileID: -6725503714359783815, guid: 48876ab9d7cae0944a9acb350036e2c1, type: 3}
       - {fileID: 4898973042930983391, guid: 48876ab9d7cae0944a9acb350036e2c1, type: 3}
       - {fileID: -3206363201524365965, guid: 48876ab9d7cae0944a9acb350036e2c1, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -7, y: 10, z: 0}
@@ -1639,7 +1643,7 @@ Tilemap:
       - {fileID: -250132882659222368, guid: 69a106c5e2a9d6d4c86e176806f6d2cb, type: 3}
       - {fileID: 6472350163185039618, guid: 69a106c5e2a9d6d4c86e176806f6d2cb, type: 3}
       - {fileID: 3179589680329323135, guid: 69a106c5e2a9d6d4c86e176806f6d2cb, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -8403,7 +8407,7 @@ Tilemap:
       - {fileID: 8313790842667632763, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: 1024707267088520393, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: -5952541215844301678, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 7, y: -10, z: 0}
@@ -8633,7 +8637,7 @@ Tilemap:
       - {fileID: 8313790842667632763, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: 1024707267088520393, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: -5952541215844301678, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -14, y: -8, z: 0}
@@ -9231,7 +9235,7 @@ Tilemap:
       - {fileID: 8313790842667632763, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: 1024707267088520393, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: -5952541215844301678, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -14, y: 5, z: 0}
