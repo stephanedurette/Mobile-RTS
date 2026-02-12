@@ -7,9 +7,22 @@ public class HumanoidUnit : Unit
     protected Vector3 velocity;
     protected Vector3? positionLastFrame;
 
+    protected Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
+
     private void Update()
     {
         UpdateVelocity();
+        UpdateAnimations();
+    }
+
+    private void UpdateAnimations()
+    {
+        animator.Play(IsMoving ? "Run" : "Idle");
     }
 
     private void UpdateVelocity()
