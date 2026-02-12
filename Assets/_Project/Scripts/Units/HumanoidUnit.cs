@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class HumanoidUnit : Unit
 {
-    [Header("References")]
-    [SerializeField] private SpriteRenderer unitSprite;
-
     public bool IsMoving => velocity.sqrMagnitude > 0;
 
     protected Vector3 velocity;

@@ -48,6 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HumanoidUnit
   unitSprite: {fileID: 981812075151288197}
+  selectedMaterial: {fileID: 2100000, guid: 64fc4e858d3981c4d81b85957d5258e9, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: b2cf29b5079e8b24e8dca8291b778865, type: 2}
 --- !u!114 &9165573896011692451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +159,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: b2cf29b5079e8b24e8dca8291b778865, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

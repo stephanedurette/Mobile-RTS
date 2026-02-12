@@ -11,4 +11,14 @@ public class GameManager : MonoBehaviour
             humanoidUnit.MoveTo(position);
         }
     }
+
+    public void OnUnitSelected(Unit unit)
+    {
+        unit.Selected = true;
+    }
+
+    public void OnUnitDeselected(Unit unit)
+    {
+        unit.Selected = false;
+    }
 }

@@ -13,11 +13,6 @@ public class AIPawn : MonoBehaviour
         set { destination = value; }
     }
 
-    private void Start()
-    {
-        Destination = Vector3.right * 4.5f;
-    }
-
     private void Update()
     {
         MoveToDestination();
