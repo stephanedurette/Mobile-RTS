@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b4813f6e1c01c40b07bca8c586d07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HumanoidUnit
+  unitSprite: {fileID: 981812075151288197}
 --- !u!114 &9165573896011692451
 MonoBehaviour:
   m_ObjectHideFlags: 0

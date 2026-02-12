@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class HumanoidUnit : Unit
 {
+    [Header("References")]
+    [SerializeField] private SpriteRenderer unitSprite;
+
     public bool IsMoving => velocity.sqrMagnitude > 0;
 
     protected Vector3 velocity;
@@ -19,6 +22,7 @@ public class HumanoidUnit : Unit
     public void MoveTo(Vector2 position)
     {
         aiPawn.Destination = position;
+        unitSprite.flipX = position.x < transform.position.x;
     }
 
     private void Update()
