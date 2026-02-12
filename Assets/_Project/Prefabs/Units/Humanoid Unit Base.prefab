@@ -9,8 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5847351719573484950}
+  - component: {fileID: 3515322550005255364}
+  - component: {fileID: 9165573896011692451}
   m_Layer: 0
-  m_Name: Unit Base
+  m_Name: Humanoid Unit Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,6 +34,32 @@ Transform:
   - {fileID: 9060426358835485984}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3515322550005255364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319579913138292679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b4813f6e1c01c40b07bca8c586d07f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HumanoidUnit
+--- !u!114 &9165573896011692451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319579913138292679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f585be2def57b3349aaabc9e4856496e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIPawn
+  moveSpeed: 3
+  minMoveDistance: 0.05
 --- !u!1 &8566842736896712816
 GameObject:
   m_ObjectHideFlags: 0
