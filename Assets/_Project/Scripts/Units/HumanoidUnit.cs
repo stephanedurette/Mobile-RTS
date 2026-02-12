@@ -8,10 +8,17 @@ public class HumanoidUnit : Unit
     protected Vector3? positionLastFrame;
 
     protected Animator animator;
+    protected AIPawn aiPawn;
 
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        aiPawn = GetComponent<AIPawn>();
+    }
+
+    public void MoveTo(Vector2 position)
+    {
+        aiPawn.Destination = position;
     }
 
     private void Update()

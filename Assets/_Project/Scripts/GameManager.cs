@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public void OnInputReleased(Vector2 position)
+    [SerializeField] private SelectionManager selectionManager;
+
+    public void OnGroundSelected(Vector2 position)
     {
-        Debug.Log(position);
+        if (selectionManager.SelectedUnit is HumanoidUnit humanoidUnit)
+        {
+            humanoidUnit.MoveTo(position);
+        }
     }
 }

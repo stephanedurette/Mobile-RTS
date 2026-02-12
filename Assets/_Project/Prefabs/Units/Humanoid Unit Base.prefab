@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5847351719573484950}
   - component: {fileID: 3515322550005255364}
   - component: {fileID: 9165573896011692451}
+  - component: {fileID: 1537539933230615301}
   m_Layer: 0
   m_Name: Humanoid Unit Base
   m_TagString: Untagged
@@ -60,6 +61,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AIPawn
   moveSpeed: 3
   minMoveDistance: 0.05
+--- !u!70 &1537539933230615301
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319579913138292679}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.0097616315, y: -0.019523263}
+  m_Size: {x: 0.83189523, y: 1.2472942}
+  m_Direction: 0
 --- !u!1 &8566842736896712816
 GameObject:
   m_ObjectHideFlags: 0
