@@ -31,7 +31,13 @@ public class SelectionManager : MonoBehaviour
 
         if (ContainsComponentOfType<Unit>(hits, out var unit))
         {
-            SelectedUnit = unit;
+            if (SelectedUnit == unit)
+            {
+                SelectedUnit = null;
+            } else
+            {
+                SelectedUnit = unit;
+            }
             return;
         }
 
