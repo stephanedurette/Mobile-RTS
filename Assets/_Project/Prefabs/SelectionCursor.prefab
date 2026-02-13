@@ -136,3 +136,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectionCursor
   activeDuration: 2
+  spriteRenderer: {fileID: 2056803738069018272}
