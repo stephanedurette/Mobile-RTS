@@ -16,7 +16,7 @@ public class ObjectPoolManager : MonoBehaviour
         spawnParentTransforms = new();
     }
 
-    public T SpawnObject<T>(GameObject objectToSpawn)
+    public T SpawnObject<T>(GameObject objectToSpawn, Vector3 position)
     {
         GameObject objectSourcePrefab = PrefabUtility.GetCorrespondingObjectFromOriginalSource(objectToSpawn);
 
@@ -36,6 +36,9 @@ public class ObjectPoolManager : MonoBehaviour
 
         //Set Transform
         spawnedObject.transform.parent = spawnParentTransforms[objectToSpawn];
+
+        //Set Position
+        spawnedObject.transform.position = position;
 
         //Assign Poolable
         if (!spawnedObject.TryGetComponent(out PoolableObject _))

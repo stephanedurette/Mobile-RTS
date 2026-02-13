@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SelectionCursor : MonoBehaviour
@@ -6,6 +7,12 @@ public class SelectionCursor : MonoBehaviour
 
     private void OnEnable()
     {
-        Destroy(gameObject, activeDuration);
+        StartCoroutine(SetActiveFalseCoroutine());
+    }
+
+    private IEnumerator SetActiveFalseCoroutine()
+    {
+        yield return new WaitForSeconds(activeDuration);
+        gameObject.SetActive(false);
     }
 }

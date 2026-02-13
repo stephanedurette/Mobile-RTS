@@ -1,16 +1,26 @@
 using UnityEngine;
+using Zenject;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private SelectionManager selectionManager;
     [SerializeField] private GameObject selectionCursorPrefab;
+
+    private SelectionManager selectionManager;
+    private ObjectPoolManager objectPoolManager;
+
+    [Inject]
+    public void Construct(SelectionManager selectionManager, ObjectPoolManager objectPoolManager)
+    {
+        this.selectionManager = selectionManager;
+        this.objectPoolManager = objectPoolManager;
+    }
 
     public void OnGroundSelected(Vector2 position)
     {
         if (selectionManager.SelectedUnit is HumanoidUnit humanoidUnit)
         {
             humanoidUnit.MoveTo(position);
-            Instantiate(selectionCursorPrefab, position, Quaternion.identity);
+            objectPoolManager.SpawnObject<SelectionCursor>(selectionCursorPrefab, position);
         }
     }
 
