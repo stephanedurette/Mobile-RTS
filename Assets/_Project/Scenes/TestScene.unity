@@ -864,6 +864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   selectionManager: {fileID: 1728170465}
+  selectionCursorPrefab: {fileID: 6906369285977467818, guid: cde6a445d6e47af4dbb916335ae5a9d2, type: 3}
 --- !u!4 &839528221
 Transform:
   m_ObjectHideFlags: 0
