@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Unit : MonoBehaviour
@@ -6,6 +8,11 @@ public class Unit : MonoBehaviour
     [SerializeField] protected SpriteRenderer unitSprite;
     [SerializeField] protected Material selectedMaterial;
     [SerializeField] protected Material defaultMaterial;
+
+    [Header("Settings")]
+    [SerializeField] private List<Action> actions;
+
+    public List<Action> Actions => actions;
 
     private bool selected;
 

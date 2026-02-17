@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Builder
       objectReference: {fileID: 0}
+    - target: {fileID: 3515322550005255364, guid: 9f36e855da3b43d41a04225a76431e43, type: 3}
+      propertyPath: actions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3515322550005255364, guid: 9f36e855da3b43d41a04225a76431e43, type: 3}
+      propertyPath: 'actions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f490924b25362643a550abd293aa581, type: 2}
     - target: {fileID: 5760740823864931245, guid: 9f36e855da3b43d41a04225a76431e43, type: 3}
       propertyPath: m_Controller
       value: 
