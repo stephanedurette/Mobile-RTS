@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
@@ -60,14 +61,31 @@ public class InputManager : MonoBehaviour
 
     private void OnInputDown(Vector2 inputPosition)
     {
+        if (PointerOverUI()) return;
+
         lastSelectPosition = inputPosition;
         OnCursorDown?.Invoke(lastSelectPosition);
     }
 
     private void OnInputUp(Vector2 inputPosition) 
     {
+        if (PointerOverUI()) return;
+
         if ((inputPosition - lastSelectPosition).sqrMagnitude > Mathf.Pow(maxInputDragDistance, 2)) return;
 
         OnCursorUp?.Invoke(lastSelectPosition);
+    }
+
+    private bool PointerOverUI()
+    {
+        switch (inputType)
+        {
+            case InputTypes.Mouse:
+                return EventSystem.current.IsPointerOverGameObject();
+            case InputTypes.Touchscreen:
+                return EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
+            default:
+                return false;
+        }
     }
 }

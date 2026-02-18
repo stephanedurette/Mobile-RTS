@@ -13,8 +13,6 @@ public class SelectionManager : MonoBehaviour
 
     private Unit selectedUnit;
 
-    private bool isCursorOverUI;
-
     public Unit SelectedUnit
     {
         get { return selectedUnit; }
@@ -31,8 +29,6 @@ public class SelectionManager : MonoBehaviour
         Vector2 worldPos = Camera.main.ScreenToWorldPoint(cursorPos);
 
         var hits = Physics2D.OverlapCircleAll(worldPos, selectionRadius);
-
-        if (isCursorOverUI) return;
 
         if (ContainsComponentOfType<Unit>(hits, out var unit))
         {
@@ -65,10 +61,5 @@ public class SelectionManager : MonoBehaviour
         target = null;
         return false;
 
-    }
-
-    private void Update()
-    {
-        isCursorOverUI = EventSystem.current.IsPointerOverGameObject();
     }
 }
