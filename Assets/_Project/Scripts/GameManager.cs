@@ -44,6 +44,6 @@ public class GameManager : MonoBehaviour
 
     public void OnActionButtonClicked(ActionButton actionButton)
     {
-        actionButton.Action.Execute();
+        actionButton.Action.Execute(this);
     }
 }
