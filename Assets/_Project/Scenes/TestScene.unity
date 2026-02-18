@@ -1032,6 +1032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 777684125}
+  - component: {fileID: 777684126}
   m_Layer: 0
   m_Name: ActionBar
   m_TagString: Untagged
@@ -1059,6 +1060,40 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 36.034}
   m_SizeDelta: {x: 434.3491, y: 72.067}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &777684126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777684124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4075dc72f05c0bf4b827f5a96193399b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActionBar
+  actionButtons:
+  - {fileID: 8005281623403690625}
+  - {fileID: 1602204558}
+  - {fileID: 1566682565}
+  - {fileID: 1324057620}
+  - {fileID: 2110831271}
+  parentTransform: {fileID: 1015020201}
+  OnActionButtonClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 839528220}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnActionButtonClicked
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &778381602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,10 +1171,34 @@ MonoBehaviour:
   selectionCursorPrefab: {fileID: 6906369285977467818, guid: cde6a445d6e47af4dbb916335ae5a9d2, type: 3}
   OnActionListSelected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 777684126}
+        m_TargetAssemblyTypeName: ActionBar, Assembly-CSharp
+        m_MethodName: UpdateActionBar
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnActionListCleared:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 777684126}
+        m_TargetAssemblyTypeName: ActionBar, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &839528221
 Transform:
   m_ObjectHideFlags: 0
@@ -1234,7 +1293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1015020201
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1461,10 +1520,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ActionButton (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 829247362489885514, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1475,6 +1530,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
   m_PrefabInstance: {fileID: 1324057618}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1324057620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7259261019966590913, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
+  m_PrefabInstance: {fileID: 1324057618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038738afc6675b745b0dfc3f73a7106a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActionButton
 --- !u!1001 &1328747593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1930,7 +1996,7 @@ Tilemap:
       - {fileID: -6725503714359783815, guid: 48876ab9d7cae0944a9acb350036e2c1, type: 3}
       - {fileID: 4898973042930983391, guid: 48876ab9d7cae0944a9acb350036e2c1, type: 3}
       - {fileID: -3206363201524365965, guid: 48876ab9d7cae0944a9acb350036e2c1, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 18, y: -11, z: 0}
@@ -2318,7 +2384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2326,7 +2392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2366,11 +2432,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 217.17455
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -36.0335
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2388,10 +2454,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ActionButton (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 829247362489885514, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2402,6 +2464,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
   m_PrefabInstance: {fileID: 1566682563}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1566682565 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7259261019966590913, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
+  m_PrefabInstance: {fileID: 1566682563}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038738afc6675b745b0dfc3f73a7106a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActionButton
 --- !u!1 &1590957010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,7 +2576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2511,7 +2584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2551,11 +2624,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 136.17455
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -36.0335
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2573,10 +2646,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ActionButton (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 829247362489885514, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2587,6 +2656,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
   m_PrefabInstance: {fileID: 1602204556}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1602204558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7259261019966590913, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
+  m_PrefabInstance: {fileID: 1602204556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038738afc6675b745b0dfc3f73a7106a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActionButton
 --- !u!1 &1637646687
 GameObject:
   m_ObjectHideFlags: 0
@@ -9339,7 +9419,7 @@ Tilemap:
       - {fileID: 8313790842667632763, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: 1024707267088520393, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: -5952541215844301678, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -1, y: -10, z: 0}
@@ -10489,7 +10569,7 @@ Tilemap:
       - {fileID: 8313790842667632763, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: 1024707267088520393, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: -5952541215844301678, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -22811,10 +22891,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ActionButton (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 829247362489885514, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22825,6 +22901,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
   m_PrefabInstance: {fileID: 2110831269}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2110831271 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7259261019966590913, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
+  m_PrefabInstance: {fileID: 2110831269}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038738afc6675b745b0dfc3f73a7106a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActionButton
 --- !u!1001 &8005281623403690623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22847,7 +22934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchorMin.x
@@ -22855,7 +22942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_SizeDelta.x
@@ -22895,11 +22982,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 55.174545
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -36.0335
       objectReference: {fileID: 0}
     - target: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22927,6 +23014,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 314907577785743280, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
   m_PrefabInstance: {fileID: 8005281623403690623}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8005281623403690625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7259261019966590913, guid: fa3c677e01d722f4fa515d32d7cb818e, type: 3}
+  m_PrefabInstance: {fileID: 8005281623403690623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038738afc6675b745b0dfc3f73a7106a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActionButton
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

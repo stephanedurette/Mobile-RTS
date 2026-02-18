@@ -41,4 +41,9 @@ public class GameManager : MonoBehaviour
         unit.Selected = false;
         OnActionListCleared?.Invoke();
     }
+
+    public void OnActionButtonClicked(ActionButton actionButton)
+    {
+        actionButton.Action.Execute();
+    }
 }

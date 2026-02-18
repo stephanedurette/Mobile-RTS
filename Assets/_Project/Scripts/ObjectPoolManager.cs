@@ -56,7 +56,7 @@ public class ObjectPoolManager : MonoBehaviour
             OnCreate,
             (p) => p.SetActive(true),
             (p) => p.SetActive(false),
-            (p) => Destroy(p),
+            (p) => GameObject.Destroy(p),
             true
         );
 

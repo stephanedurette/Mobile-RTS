@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class SelectionManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] private UnityEvent<Vector2> OnGroundSelected;
 
     private Unit selectedUnit;
+
+    private bool isCursorOverUI;
 
     public Unit SelectedUnit
     {
@@ -28,6 +31,8 @@ public class SelectionManager : MonoBehaviour
         Vector2 worldPos = Camera.main.ScreenToWorldPoint(cursorPos);
 
         var hits = Physics2D.OverlapCircleAll(worldPos, selectionRadius);
+
+        if (isCursorOverUI) return;
 
         if (ContainsComponentOfType<Unit>(hits, out var unit))
         {
@@ -60,5 +65,10 @@ public class SelectionManager : MonoBehaviour
         target = null;
         return false;
 
+    }
+
+    private void Update()
+    {
+        isCursorOverUI = EventSystem.current.IsPointerOverGameObject();
     }
 }
