@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -56,7 +57,7 @@ public class ObjectPoolManager : MonoBehaviour
             OnCreate,
             (p) => p.SetActive(true),
             (p) => p.SetActive(false),
-            (p) => GameObject.Destroy(p),
+            (p) => DestroyInAnyMode(p),
             true
         );
 
@@ -68,5 +69,13 @@ public class ObjectPoolManager : MonoBehaviour
         }
 
         return pool;
+    }
+
+    private void DestroyInAnyMode(Object obj)
+    {
+        if (Application.isPlaying == false)
+            Object.DestroyImmediate(obj);
+        else
+            Object.Destroy(obj);
     }
 }
