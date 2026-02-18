@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 public class GameManager : MonoBehaviour
@@ -7,6 +9,10 @@ public class GameManager : MonoBehaviour
 
     private SelectionManager selectionManager;
     private ObjectPoolManager objectPoolManager;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent<List<Action>> OnActionListSelected;
+    [SerializeField] private UnityEvent OnActionListCleared;
 
     [Inject]
     public void Construct(SelectionManager selectionManager, ObjectPoolManager objectPoolManager)
@@ -27,10 +33,12 @@ public class GameManager : MonoBehaviour
     public void OnUnitSelected(Unit unit)
     {
         unit.Selected = true;
+        OnActionListSelected?.Invoke(unit.Actions);
     }
 
     public void OnUnitDeselected(Unit unit)
     {
         unit.Selected = false;
+        OnActionListCleared?.Invoke();
     }
 }
