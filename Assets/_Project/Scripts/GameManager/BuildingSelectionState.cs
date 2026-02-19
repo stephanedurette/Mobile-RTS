@@ -20,7 +20,8 @@ public partial class GameManager
 
         public override void OnCursorUp(Vector2 cursorPosition)
         {
-            Debug.Log("on cursor up");
+            placementCursor.gameObject.SetActive(false);
+            gameManager.selectionStateMachine.CurrentState = gameManager.unitSelectionState;
         }
 
         public override void OnEnter()
