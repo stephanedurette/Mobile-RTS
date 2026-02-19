@@ -47,4 +47,9 @@ public partial class GameManager : MonoBehaviour
     {
         actionButton.Action.Execute(this);
     }
+
+    public void OnBuildActionExecute(BuildAction buildAction) { 
+        buildingSelectionState.SelectedBuildAction = buildAction;
+        selectionStateMachine.CurrentState = buildingSelectionState;
+    }
 }

@@ -5,6 +5,6 @@ public class BuildAction : Action
 {
     public override void Execute(GameManager gameManager)
     {
-        Debug.Log("Executing");
+        gameManager.OnBuildActionExecute(this);
     }
 }
