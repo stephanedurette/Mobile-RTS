@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using Zenject;
 
 public partial class GameManager
 {
     private class UnitSelectionState : SelectionState
     {
+
         private Unit selectedUnit;
 
         private Unit SelectedUnit
@@ -58,7 +60,7 @@ public partial class GameManager
             if (selectedUnit is HumanoidUnit humanoidUnit)
             {
                 humanoidUnit.MoveTo(position);
-                gameManager.objectPoolManager.SpawnObject<SelectionCursor>(gameManager.selectionCursorPrefab, position);
+                gameManager.objectPoolManager.SpawnObject<SelectionCursor>(gameManager.moveEffectPrefab, position);
             }
         }
 

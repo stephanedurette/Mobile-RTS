@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 public partial class GameManager
 {
@@ -6,11 +7,13 @@ public partial class GameManager
     {
         public BuildAction SelectedBuildAction;
 
+        private PlacementCursor placementCursor;
+
         public BuildingSelectionState(GameManager gameManager) : base(gameManager) { }
 
         public override void OnCursorDown(Vector2 cursorPosition)
         {
-
+            
         }
 
         public override void OnCursorUp(Vector2 cursorPosition)
@@ -20,7 +23,8 @@ public partial class GameManager
 
         public override void OnEnter()
         {
-
+            placementCursor = gameManager.objectPoolManager.SpawnObject<PlacementCursor>(gameManager.placementEffectPrefab, Vector2.zero);
+            placementCursor.Sprite = SelectedBuildAction.PlacementSprite;
         }
 
         public override void OnExit()
@@ -30,7 +34,7 @@ public partial class GameManager
 
         public override void Update()
         {
-            Debug.Log("Update");
+            //placementCursor.transform.position = WorldPos
         }
     }
 }

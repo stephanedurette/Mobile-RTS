@@ -5,10 +5,6 @@ using Zenject;
 
 public partial class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject selectionCursorPrefab;
-
-    private ObjectPoolManager objectPoolManager;
-
     [Header("Events")]
     [SerializeField] private UnityEvent<List<Action>> OnActionListSelected;
     [SerializeField] private UnityEvent OnActionListCleared;
@@ -18,10 +14,16 @@ public partial class GameManager : MonoBehaviour
     private UnitSelectionState unitSelectionState;
     private BuildingSelectionState buildingSelectionState;
 
+    private ObjectPoolManager objectPoolManager;
+    private GameObject moveEffectPrefab;
+    private GameObject placementEffectPrefab;
+
     [Inject]
-    public void Construct(ObjectPoolManager objectPoolManager)
+    public void Construct(ObjectPoolManager objectPoolManager, [Inject(Id = "MoveCursor")] GameObject moveEffectPrefab, [Inject(Id = "PlacementCursor")] GameObject placementEffectPrefab)
     {
         this.objectPoolManager = objectPoolManager;
+        this.moveEffectPrefab = moveEffectPrefab;
+        this.placementEffectPrefab = placementEffectPrefab;
     }
 
     private void Awake()
