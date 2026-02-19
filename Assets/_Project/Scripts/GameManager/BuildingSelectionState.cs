@@ -9,6 +9,8 @@ public partial class GameManager
 
         private PlacementCursor placementCursor;
 
+        private Vector2 worldCursorPosition => WorldPos(gameManager.inputManager.GetCursorPosition().Value);
+
         public BuildingSelectionState(GameManager gameManager) : base(gameManager) { }
 
         public override void OnCursorDown(Vector2 cursorPosition)
@@ -23,7 +25,7 @@ public partial class GameManager
 
         public override void OnEnter()
         {
-            placementCursor = gameManager.effectFactory.CreatePlacementCursor(Vector2.zero);
+            placementCursor = gameManager.effectFactory.CreatePlacementCursor(worldCursorPosition);
             placementCursor.Sprite = SelectedBuildAction.PlacementSprite;
         }
 
@@ -34,7 +36,7 @@ public partial class GameManager
 
         public override void Update()
         {
-            //placementCursor.transform.position = WorldPos
+            placementCursor.transform.position = worldCursorPosition;
         }
     }
 }

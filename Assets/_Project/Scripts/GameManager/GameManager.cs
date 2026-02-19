@@ -15,11 +15,13 @@ public partial class GameManager : MonoBehaviour
     private BuildingSelectionState buildingSelectionState;
 
     private EffectFactory effectFactory;
+    private InputManager inputManager;
 
     [Inject]
-    public void Construct(EffectFactory effectFactory)
+    public void Construct(EffectFactory effectFactory, InputManager inputManager)
     {
         this.effectFactory = effectFactory;
+        this.inputManager = inputManager;
     }
 
     private void Awake()

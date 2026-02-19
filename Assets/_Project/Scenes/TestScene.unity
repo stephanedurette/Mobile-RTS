@@ -198,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameInstaller
   objectPoolManager: {fileID: 778381604}
   effectFactory: {fileID: 1565512886}
+  inputManager: {fileID: 1004840583}
 --- !u!1 &279979449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,7 +2053,7 @@ Tilemap:
       - {fileID: -2664502254669432612, guid: e0ee3e1da14e2ff4291e92f7c6b82c4e, type: 3}
       - {fileID: 2339070538383146887, guid: e0ee3e1da14e2ff4291e92f7c6b82c4e, type: 3}
       - {fileID: 1794980880798166544, guid: e0ee3e1da14e2ff4291e92f7c6b82c4e, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 16, y: -9, z: 0}
@@ -2236,7 +2237,7 @@ Tilemap:
       - {fileID: 6390647827179591045, guid: bc8ec74b599202945ab0ec090b0b3eaf, type: 3}
       - {fileID: -5304205338187861626, guid: bc8ec74b599202945ab0ec090b0b3eaf, type: 3}
       - {fileID: 65037300474577770, guid: bc8ec74b599202945ab0ec090b0b3eaf, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -18, y: 10, z: 0}
@@ -9224,7 +9225,7 @@ Tilemap:
       - {fileID: 8313790842667632763, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: 1024707267088520393, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: -5952541215844301678, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: -10, z: 0}
@@ -10374,7 +10375,7 @@ Tilemap:
       - {fileID: 8313790842667632763, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: 1024707267088520393, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: -5952541215844301678, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 14, y: 4, z: 0}

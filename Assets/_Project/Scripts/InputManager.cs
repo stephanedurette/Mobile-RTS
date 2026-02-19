@@ -26,6 +26,20 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    public Vector2? GetCursorPosition()
+    {
+        switch (inputType)
+        {
+            case InputTypes.Mouse:
+                return Input.mousePosition;
+            case InputTypes.Touchscreen:
+                if (Input.touchCount == 0) return null;
+                return Input.GetTouch(0).position;
+            default:
+                return null;
+        }
+    }
+
     private void UpdateMouseInput()
     {
         if (Input.GetMouseButtonDown(0)) { 
