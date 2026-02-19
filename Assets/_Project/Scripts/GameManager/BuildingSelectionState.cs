@@ -23,7 +23,7 @@ public partial class GameManager
 
         public override void OnEnter()
         {
-            placementCursor = gameManager.objectPoolManager.SpawnObject<PlacementCursor>(gameManager.placementEffectPrefab, Vector2.zero);
+            placementCursor = gameManager.effectFactory.CreatePlacementCursor(Vector2.zero);
             placementCursor.Sprite = SelectedBuildAction.PlacementSprite;
         }
 

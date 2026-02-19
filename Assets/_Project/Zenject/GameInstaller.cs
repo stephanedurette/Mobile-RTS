@@ -5,16 +5,11 @@ public class GameInstaller : MonoInstaller
 {
     [Header("Managers")]
     [SerializeField] private ObjectPoolManager objectPoolManager;
-
-    [Header("Effects")]
-    [SerializeField] private GameObject placementCursorPrefab;
-    [SerializeField] private GameObject moveCursorPrefab;
+    [SerializeField] private EffectFactory effectFactory;
 
     public override void InstallBindings()
     {
         Container.Bind<ObjectPoolManager>().FromInstance(objectPoolManager).AsSingle();
-
-        Container.BindInstance(placementCursorPrefab).WithId("PlacementCursor");
-        Container.BindInstance(moveCursorPrefab).WithId("MoveCursor");
+        Container.Bind<EffectFactory>().FromInstance(effectFactory).AsSingle();
     }
 }

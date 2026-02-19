@@ -60,7 +60,7 @@ public partial class GameManager
             if (selectedUnit is HumanoidUnit humanoidUnit)
             {
                 humanoidUnit.MoveTo(position);
-                gameManager.objectPoolManager.SpawnObject<SelectionCursor>(gameManager.moveEffectPrefab, position);
+                gameManager.effectFactory.CreateSelectionCursor(position);
             }
         }
 

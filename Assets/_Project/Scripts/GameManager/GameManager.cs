@@ -14,16 +14,12 @@ public partial class GameManager : MonoBehaviour
     private UnitSelectionState unitSelectionState;
     private BuildingSelectionState buildingSelectionState;
 
-    private ObjectPoolManager objectPoolManager;
-    private GameObject moveEffectPrefab;
-    private GameObject placementEffectPrefab;
+    private EffectFactory effectFactory;
 
     [Inject]
-    public void Construct(ObjectPoolManager objectPoolManager, [Inject(Id = "MoveCursor")] GameObject moveEffectPrefab, [Inject(Id = "PlacementCursor")] GameObject placementEffectPrefab)
+    public void Construct(EffectFactory effectFactory)
     {
-        this.objectPoolManager = objectPoolManager;
-        this.moveEffectPrefab = moveEffectPrefab;
-        this.placementEffectPrefab = placementEffectPrefab;
+        this.effectFactory = effectFactory;
     }
 
     private void Awake()
