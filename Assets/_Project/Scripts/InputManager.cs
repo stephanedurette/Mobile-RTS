@@ -7,12 +7,9 @@ public class InputManager : MonoBehaviour
     enum InputTypes { Mouse, Touchscreen }
 
     [SerializeField] private InputTypes inputType;
-    [SerializeField] private float maxInputDragDistance = 10;
 
     [SerializeField] private UnityEvent<Vector2> OnCursorDown;
     [SerializeField] private UnityEvent<Vector2> OnCursorUp;
-
-    private Vector2 lastSelectPosition;
 
     private void Update()
     {
@@ -63,17 +60,14 @@ public class InputManager : MonoBehaviour
     {
         if (PointerOverUI()) return;
 
-        lastSelectPosition = inputPosition;
-        OnCursorDown?.Invoke(lastSelectPosition);
+        OnCursorDown?.Invoke(inputPosition);
     }
 
     private void OnInputUp(Vector2 inputPosition) 
     {
         if (PointerOverUI()) return;
 
-        if ((inputPosition - lastSelectPosition).sqrMagnitude > Mathf.Pow(maxInputDragDistance, 2)) return;
-
-        OnCursorUp?.Invoke(lastSelectPosition);
+        OnCursorUp?.Invoke(inputPosition);
     }
 
     private bool PointerOverUI()
