@@ -19,12 +19,22 @@ public class GridManager : MonoBehaviour
         return (Vector2)gridPosition * gridSquareSize;
     }
 
-    public bool IsComponentOnGrid<T>(Vector2Int gridOriginPosition, int checkWidth, int checkHeight, out T component) { 
+    public bool IsComponentOnGrid<T>(Vector2 gridWorldPosition, Vector2 gridDimensions, out T component) { 
+        var hits = Physics2D.OverlapBoxAll(gridWorldPosition, gridSquareSize * (gridDimensions - Vector2.one), 0f);
+        
+        foreach (var hit in hits) { 
+            if (hit.gameObject.TryGetComponent(out T t))
+            {
+                component = t;
+                return true;
+            }
+        }
+
         component = default(T);
         return false;
     }
 
-    public void HighlightSquares(Vector2Int gridOriginPosition, int width, int height, Color highlightColor)
+    public void HighlightSquares(Vector2 gridWorldPosition, int width, int height, Color highlightColor)
     {
 
     }

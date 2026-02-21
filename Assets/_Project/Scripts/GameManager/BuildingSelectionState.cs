@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UIElements;
 
 public partial class GameManager
 {
@@ -9,15 +8,13 @@ public partial class GameManager
 
         private PlacementCursor placementCursor;
 
-        private Vector2 worldCursorPosition => WorldPos(gameManager.inputManager.GetCursorPosition().Value);
-
-        private Vector2 worldPositionSnappedToGrid => gameManager.gridManager.WorldPositionSnappedToGrid(worldCursorPosition);
+        private Vector2 lastGridSnappedPosition;
 
         public BuildingSelectionState(GameManager gameManager) : base(gameManager) { }
 
         public override void OnCursorDown(Vector2 cursorPosition)
         {
-            
+
         }
 
         public override void OnCursorUp(Vector2 cursorPosition)
@@ -28,7 +25,7 @@ public partial class GameManager
 
         public override void OnEnter()
         {
-            placementCursor = gameManager.effectFactory.CreatePlacementCursor(worldCursorPosition);
+            placementCursor = gameManager.effectFactory.CreatePlacementCursor(WorldPos(gameManager.inputManager.GetCursorPosition().Value));
             placementCursor.Sprite = SelectedBuildAction.PlacementSprite;
         }
 
@@ -39,9 +36,19 @@ public partial class GameManager
 
         public override void Update()
         {
-            if (worldPositionSnappedToGrid != worldCursorPosition) { 
-                placementCursor.transform.position = worldPositionSnappedToGrid;
+            Vector2 worldCursorPosition = WorldPos(gameManager.inputManager.GetCursorPosition().Value);
+            Vector2 worldPositionSnappedToGrid = gameManager.gridManager.WorldPositionSnappedToGrid(worldCursorPosition);
+
+            if (worldPositionSnappedToGrid == lastGridSnappedPosition) return;
+
+            lastGridSnappedPosition = worldPositionSnappedToGrid;
+            placementCursor.transform.position = worldPositionSnappedToGrid;
+
+            if (gameManager.gridManager.IsComponentOnGrid(worldPositionSnappedToGrid, SelectedBuildAction.GridSize, out Unit unit))
+            {
+                Debug.Log("blah");
             }
+
         }
     }
 }

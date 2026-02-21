@@ -11,7 +11,7 @@ public partial class GameManager
             this.gameManager = gameManager;
         }
 
-        public static float SelectionRadius = .01f;
+        public static float SelectionRadius = .02f;
 
         public abstract void OnCursorUp(Vector2 cursorPosition);
         public abstract void OnCursorDown(Vector2 cursorPosition);

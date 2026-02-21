@@ -50,6 +50,7 @@ MonoBehaviour:
   unitSprite: {fileID: 981812075151288197}
   selectedMaterial: {fileID: 2100000, guid: 64fc4e858d3981c4d81b85957d5258e9, type: 2}
   defaultMaterial: {fileID: 2100000, guid: b2cf29b5079e8b24e8dca8291b778865, type: 2}
+  actions: []
 --- !u!114 &9165573896011692451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,8 +99,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0097616315, y: -0.019523263}
-  m_Size: {x: 0.83189523, y: 1.2472942}
+  m_Offset: {x: 0.0097616315, y: -0.06766704}
+  m_Size: {x: 0.83189523, y: 0.85144526}
   m_Direction: 0
 --- !u!1 &8566842736896712816
 GameObject:
