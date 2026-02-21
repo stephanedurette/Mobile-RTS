@@ -11,6 +11,8 @@ public partial class GameManager
 
         private Vector2 worldCursorPosition => WorldPos(gameManager.inputManager.GetCursorPosition().Value);
 
+        private Vector2 worldPositionSnappedToGrid => gameManager.gridManager.WorldPositionSnappedToGrid(worldCursorPosition);
+
         public BuildingSelectionState(GameManager gameManager) : base(gameManager) { }
 
         public override void OnCursorDown(Vector2 cursorPosition)
@@ -37,7 +39,9 @@ public partial class GameManager
 
         public override void Update()
         {
-            placementCursor.transform.position = worldCursorPosition;
+            if (worldPositionSnappedToGrid != worldCursorPosition) { 
+                placementCursor.transform.position = worldPositionSnappedToGrid;
+            }
         }
     }
 }

@@ -16,12 +16,14 @@ public partial class GameManager : MonoBehaviour
 
     private EffectFactory effectFactory;
     private InputManager inputManager;
+    private GridManager gridManager;
 
     [Inject]
-    public void Construct(EffectFactory effectFactory, InputManager inputManager)
+    public void Construct(EffectFactory effectFactory, InputManager inputManager, GridManager gridManager)
     {
         this.effectFactory = effectFactory;
         this.inputManager = inputManager;
+        this.gridManager = gridManager;
     }
 
     private void Awake()
