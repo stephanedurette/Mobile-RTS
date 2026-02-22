@@ -41,9 +41,9 @@ public partial class GameManager
                 return;
             }
 
-            if (ContainsComponentOfType<Ground>(hits, out var _))
+            if (ContainsComponentOfType<Walkable>(hits, out var _))
             {
-                OnGroundSelected(worldPosition);
+                OnWalkableSelected(worldPosition);
                 return;
             }
         }
@@ -55,7 +55,7 @@ public partial class GameManager
         public override void Update() { }
 
 
-        private void OnGroundSelected(Vector2 position)
+        private void OnWalkableSelected(Vector2 position)
         {
             if (selectedUnit is HumanoidUnit humanoidUnit)
             {

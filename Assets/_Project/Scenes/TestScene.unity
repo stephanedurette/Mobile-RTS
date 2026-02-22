@@ -2260,7 +2260,7 @@ Tilemap:
       - {fileID: -250132882659222368, guid: 69a106c5e2a9d6d4c86e176806f6d2cb, type: 3}
       - {fileID: 6472350163185039618, guid: 69a106c5e2a9d6d4c86e176806f6d2cb, type: 3}
       - {fileID: 3179589680329323135, guid: 69a106c5e2a9d6d4c86e176806f6d2cb, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 16, y: 9, z: 0}
@@ -2855,8 +2855,9 @@ GameObject:
   - component: {fileID: 1691111419}
   - component: {fileID: 1691111418}
   - component: {fileID: 1691111417}
+  - component: {fileID: 1691111421}
   m_Layer: 0
-  m_Name: Walkable
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8410,6 +8411,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1691111421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691111413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72fbb19e6d6627e42a67934c2915cef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Buildable
 --- !u!1 &1742349625
 GameObject:
   m_ObjectHideFlags: 0
@@ -10170,7 +10183,7 @@ Tilemap:
       - {fileID: 8313790842667632763, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: 1024707267088520393, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: -5952541215844301678, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -14, y: -1, z: 0}

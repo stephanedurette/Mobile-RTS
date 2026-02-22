@@ -58,7 +58,7 @@ public partial class GameManager
                 return false;
             }
 
-            if (!gameManager.gridManager.IsComponentOnEveryGridPosition<Ground>(pos, buildingSize))
+            if (!gameManager.gridManager.IsComponentOnEveryGridPosition<Buildable>(pos, buildingSize))
             {
                 return false;
             }
