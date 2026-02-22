@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 using Zenject;
 
@@ -49,6 +48,7 @@ public class GridManager : MonoBehaviour
             for (int y = 0; y < gridDimensions.y; y++)
             {
                 var hits = Physics2D.OverlapBoxAll(worldPosition - offset + new Vector2(x, y), gridSquareSize * .9f * Vector2.one, 0f);
+                if (hits.Length == 0) return false;
                 foreach (var hit in hits)
                 {
                     if (!hit.gameObject.TryGetComponent(out T _))
@@ -62,10 +62,12 @@ public class GridManager : MonoBehaviour
         return true;
     }
 
-    public bool IsComponentOnGrid<T>(Vector2 gridWorldPosition, Vector2Int gridDimensions, out T component) { 
+    public bool IsComponentOnGrid<T>(Vector2 gridWorldPosition, Vector2Int gridDimensions, out T component)
+    {
         var hits = Physics2D.OverlapBoxAll(gridWorldPosition, gridSquareSize * (gridDimensions - Vector2.one), 0f);
-        
-        foreach (var hit in hits) { 
+
+        foreach (var hit in hits)
+        {
             if (hit.gameObject.TryGetComponent(out T t))
             {
                 component = t;
@@ -84,8 +86,10 @@ public class GridManager : MonoBehaviour
             gridDimensions.y % 2 == 0 ? gridSquareSize / 2 * gridDimensions.y / 2 : Mathf.Floor(gridDimensions.y / 2)
         );
 
-        for (int x = 0; x < gridDimensions.x; x++) {
-            for (int y = 0; y < gridDimensions.y; y++) {
+        for (int x = 0; x < gridDimensions.x; x++)
+        {
+            for (int y = 0; y < gridDimensions.y; y++)
+            {
                 var highlight = effectFactory.CreateGridSquareHighlight(gridWorldPosition - offset + new Vector2(x, y), highlightColor);
                 activeHighlights.Add(highlight);
             }
@@ -94,7 +98,8 @@ public class GridManager : MonoBehaviour
 
     public void ClearHighlights()
     {
-        foreach (var highlight in activeHighlights) { 
+        foreach (var highlight in activeHighlights)
+        {
             highlight.gameObject.SetActive(false);
         }
         activeHighlights.Clear();

@@ -53,7 +53,7 @@ public partial class GameManager
 
         private bool CanBuild(Vector2 pos, Vector2Int buildingSize)
         {
-            if (gameManager.gridManager.IsComponentOnGrid(pos, SelectedBuildAction.GridSize, out Unit unit))
+            if (gameManager.gridManager.IsComponentOnGrid(pos, buildingSize, out Unit unit))
             {
                 return false;
             }
