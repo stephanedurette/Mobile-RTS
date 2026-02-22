@@ -40,8 +40,8 @@ public class GridManager : MonoBehaviour
     public bool IsComponentOnEveryGridPosition<T>(Vector2 worldPosition, Vector2Int gridDimensions)
     {
         Vector2 offset = new(
-            gridDimensions.x % 2 == 0 ? gridSquareSize / 2 + gridDimensions.x / 2 : Mathf.Floor(gridDimensions.x / 2),
-            gridDimensions.y % 2 == 0 ? gridSquareSize / 2 + gridDimensions.y / 2 : Mathf.Floor(gridDimensions.y / 2)
+            gridDimensions.x % 2 == 0 ? gridSquareSize / 2 * gridDimensions.x / 2 : Mathf.Floor(gridDimensions.x / 2),
+            gridDimensions.y % 2 == 0 ? gridSquareSize / 2 * gridDimensions.y / 2 : Mathf.Floor(gridDimensions.y / 2)
         );
 
         for (int x = 0; x < gridDimensions.x; x++)
@@ -80,13 +80,13 @@ public class GridManager : MonoBehaviour
     public void HighlightSquares(Vector2 gridWorldPosition, Vector2Int gridDimensions, Color highlightColor)
     {
         Vector2 offset = new(
-            gridDimensions.x % 2 == 0 ? gridSquareSize / 2 + gridDimensions.x / 2 : Mathf.Floor(gridDimensions.x / 2),
-            gridDimensions.y % 2 == 0 ? gridSquareSize / 2 + gridDimensions.y / 2 : Mathf.Floor(gridDimensions.y / 2)
+            gridDimensions.x % 2 == 0 ? gridSquareSize / 2 * gridDimensions.x / 2 : Mathf.Floor(gridDimensions.x / 2),
+            gridDimensions.y % 2 == 0 ? gridSquareSize / 2 * gridDimensions.y / 2 : Mathf.Floor(gridDimensions.y / 2)
         );
 
         for (int x = 0; x < gridDimensions.x; x++) {
             for (int y = 0; y < gridDimensions.y; y++) {
-                var highlight = effectFactory.CreateGridSquareHighlight(gridWorldPosition - offset/2 + new Vector2(x, y), highlightColor);
+                var highlight = effectFactory.CreateGridSquareHighlight(gridWorldPosition - offset + new Vector2(x, y), highlightColor);
                 activeHighlights.Add(highlight);
             }
         }
