@@ -44,9 +44,13 @@ public partial class GameManager
             lastGridSnappedPosition = worldPositionSnappedToGrid;
             placementCursor.transform.position = worldPositionSnappedToGrid;
 
+            gameManager.gridManager.ClearHighlights();
             if (gameManager.gridManager.IsComponentOnGrid(worldPositionSnappedToGrid, SelectedBuildAction.GridSize, out Unit unit))
             {
-                Debug.Log("blah");
+                gameManager.gridManager.HighlightSquares(worldPositionSnappedToGrid, SelectedBuildAction.GridSize, Color.red);
+            } else
+            {
+                gameManager.gridManager.HighlightSquares(worldPositionSnappedToGrid, SelectedBuildAction.GridSize, Color.green);
             }
 
         }

@@ -5,6 +5,7 @@ public class EffectFactory : MonoBehaviour
 {
     [SerializeField] private GameObject moveEffectPrefab;
     [SerializeField] private GameObject placeEffectPrefab;
+    [SerializeField] private GameObject gridSquareHighlightPrefab;
 
     private ObjectPoolManager objectPoolManager;
 
@@ -22,5 +23,12 @@ public class EffectFactory : MonoBehaviour
     public SelectionCursor CreateSelectionCursor(Vector2 position)
     {
         return objectPoolManager.SpawnObject<SelectionCursor>(moveEffectPrefab, position);
+    }
+
+    public GridSquareHighlight CreateGridSquareHighlight(Vector2 position, Color color) 
+    {
+        var obj = objectPoolManager.SpawnObject<GridSquareHighlight>(gridSquareHighlightPrefab, position);
+        obj.HighlightColor = color;
+        return obj;
     }
 }
