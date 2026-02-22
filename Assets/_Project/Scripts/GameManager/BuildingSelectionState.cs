@@ -44,15 +44,26 @@ public partial class GameManager
             lastGridSnappedPosition = worldPositionSnappedToGrid;
             placementCursor.transform.position = worldPositionSnappedToGrid;
 
+            bool canBuild = CanBuild(worldPositionSnappedToGrid, SelectedBuildAction.GridSize);
+            Color highlightColor = canBuild ? Color.green : Color.red;
+
             gameManager.gridManager.ClearHighlights();
-            if (gameManager.gridManager.IsComponentOnGrid(worldPositionSnappedToGrid, SelectedBuildAction.GridSize, out Unit unit))
+            gameManager.gridManager.HighlightSquares(worldPositionSnappedToGrid, SelectedBuildAction.GridSize, highlightColor);
+        }
+
+        private bool CanBuild(Vector2 pos, Vector2Int buildingSize)
+        {
+            if (gameManager.gridManager.IsComponentOnGrid(pos, SelectedBuildAction.GridSize, out Unit unit))
             {
-                gameManager.gridManager.HighlightSquares(worldPositionSnappedToGrid, SelectedBuildAction.GridSize, Color.red);
-            } else
-            {
-                gameManager.gridManager.HighlightSquares(worldPositionSnappedToGrid, SelectedBuildAction.GridSize, Color.green);
+                return false;
             }
 
+            if (!gameManager.gridManager.IsComponentOnEveryGridPosition<Ground>(pos, buildingSize))
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

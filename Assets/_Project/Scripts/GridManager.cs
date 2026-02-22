@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using Zenject;
 
@@ -34,6 +35,31 @@ public class GridManager : MonoBehaviour
     public Vector2 WorldPosition(Vector2Int gridPosition)
     {
         return (Vector2)gridPosition * gridSquareSize;
+    }
+
+    public bool IsComponentOnEveryGridPosition<T>(Vector2 worldPosition, Vector2Int gridDimensions)
+    {
+        Vector2 offset = new(
+            gridDimensions.x % 2 == 0 ? gridSquareSize / 2 + gridDimensions.x / 2 : Mathf.Floor(gridDimensions.x / 2),
+            gridDimensions.y % 2 == 0 ? gridSquareSize / 2 + gridDimensions.y / 2 : Mathf.Floor(gridDimensions.y / 2)
+        );
+
+        for (int x = 0; x < gridDimensions.x; x++)
+        {
+            for (int y = 0; y < gridDimensions.y; y++)
+            {
+                var hits = Physics2D.OverlapBoxAll(worldPosition - offset + new Vector2(x, y), gridSquareSize * .9f * Vector2.one, 0f);
+                foreach (var hit in hits)
+                {
+                    if (!hit.gameObject.TryGetComponent(out T _))
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
     }
 
     public bool IsComponentOnGrid<T>(Vector2 gridWorldPosition, Vector2Int gridDimensions, out T component) { 
