@@ -39,16 +39,22 @@ public partial class GameManager
             Vector2 worldCursorPosition = WorldPos(gameManager.inputManager.GetCursorPosition().Value);
             Vector2 worldPositionSnappedToGrid = gameManager.gridManager.WorldPositionSnappedToGrid(worldCursorPosition);
 
-            if (worldPositionSnappedToGrid == lastGridSnappedPosition) return;
+            if (worldPositionSnappedToGrid != lastGridSnappedPosition){
+                UpdateBuildCursor(worldPositionSnappedToGrid);
 
-            lastGridSnappedPosition = worldPositionSnappedToGrid;
-            placementCursor.transform.position = worldPositionSnappedToGrid;
+                lastGridSnappedPosition = worldPositionSnappedToGrid;
+            }
+        }
 
-            bool canBuild = CanBuild(worldPositionSnappedToGrid, SelectedBuildAction.GridSize);
+        private void UpdateBuildCursor(Vector2 position)
+        {
+            placementCursor.transform.position = position;
+
+            bool canBuild = CanBuild(position, SelectedBuildAction.GridSize);
             Color highlightColor = canBuild ? Color.green : Color.red;
 
             gameManager.gridManager.ClearHighlights();
-            gameManager.gridManager.HighlightSquares(worldPositionSnappedToGrid, SelectedBuildAction.GridSize, highlightColor);
+            gameManager.gridManager.HighlightSquares(position, SelectedBuildAction.GridSize, highlightColor);
         }
 
         private bool CanBuild(Vector2 pos, Vector2Int buildingSize)
