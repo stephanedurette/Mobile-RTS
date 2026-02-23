@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 public partial class GameManager
 {
@@ -10,6 +11,8 @@ public partial class GameManager
 
         private Vector2 lastGridSnappedPosition;
 
+        private bool isOnValidBuildPosition;
+
         public BuildingSelectionState(GameManager gameManager) : base(gameManager) { }
 
         public override void OnCursorDown(Vector2 cursorPosition)
@@ -19,8 +22,15 @@ public partial class GameManager
 
         public override void OnCursorUp(Vector2 cursorPosition)
         {
-            placementCursor.gameObject.SetActive(false);
-            gameManager.selectionStateMachine.CurrentState = gameManager.unitSelectionState;
+            if (isOnValidBuildPosition)
+            {
+                
+            } else
+            {
+                placementCursor.gameObject.SetActive(false);
+                gameManager.gridManager.ClearHighlights();
+                gameManager.selectionStateMachine.CurrentState = gameManager.unitSelectionState;
+            }
         }
 
         public override void OnEnter()
@@ -40,21 +50,20 @@ public partial class GameManager
             Vector2 worldPositionSnappedToGrid = gameManager.gridManager.WorldPositionSnappedToGrid(worldCursorPosition);
 
             if (worldPositionSnappedToGrid != lastGridSnappedPosition){
-                UpdateBuildCursor(worldPositionSnappedToGrid);
+                placementCursor.transform.position = worldPositionSnappedToGrid;
+
+                isOnValidBuildPosition = CanBuild(worldPositionSnappedToGrid, SelectedBuildAction.GridSize);
+
+                UpdateGridHighlights(worldPositionSnappedToGrid, isOnValidBuildPosition);
 
                 lastGridSnappedPosition = worldPositionSnappedToGrid;
             }
         }
 
-        private void UpdateBuildCursor(Vector2 position)
+        private void UpdateGridHighlights(Vector2 position, bool validBuildPosition)
         {
-            placementCursor.transform.position = position;
-
-            bool canBuild = CanBuild(position, SelectedBuildAction.GridSize);
-            Color highlightColor = canBuild ? Color.green : Color.red;
-
             gameManager.gridManager.ClearHighlights();
-            gameManager.gridManager.HighlightSquares(position, SelectedBuildAction.GridSize, highlightColor);
+            gameManager.gridManager.HighlightSquares(position, SelectedBuildAction.GridSize, validBuildPosition ? Color.green : Color.red);
         }
 
         private bool CanBuild(Vector2 pos, Vector2Int buildingSize)

@@ -3,6 +3,6 @@ using UnityEngine.UI;
 
 public abstract class Action : ScriptableObject
 {
-    public Sprite Image;
+    public Sprite ActionIcon;
     public abstract void Execute(GameManager gameManager);
 }

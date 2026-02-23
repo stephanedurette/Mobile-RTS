@@ -13,7 +13,7 @@ public class ActionButton : MonoBehaviour
     public Action Action
     {
         get { return action; }
-        set { action = value; actionImage.sprite = action.Image; }
+        set { action = value; actionImage.sprite = action.ActionIcon; }
     }
 
     public void OnClick()
