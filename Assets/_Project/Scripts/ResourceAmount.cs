@@ -4,6 +4,6 @@
 public struct ResourceAmount
 {
     public ResourceData Resource;
-    public int Cost;
+    public int Amount;
 }
 

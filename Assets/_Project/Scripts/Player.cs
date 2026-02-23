@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private ResourceAmount[] startingResources;
+    [Header("Events")]
     [SerializeField] private UnityEvent<ResourceData, int> OnResourceAmountChanged;
 
     private HashSet<Resource> resources;
@@ -13,16 +13,6 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         resources = new();
-    }
-
-    private void Start()
-    {
-        foreach (var resource in startingResources) {
-            var r = new Resource(resource.Cost, resource.Resource);
-            resources.Add(r);
-            r.OnAmountChanged += (d, r) => OnResourceAmountChanged?.Invoke(d, r);
-            OnResourceAmountChanged?.Invoke(resource.Resource, resource.Cost);
-        }
     }
 
     public void SetResourceCount(ResourceData data, int amount)

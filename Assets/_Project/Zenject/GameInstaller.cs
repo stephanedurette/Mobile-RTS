@@ -5,9 +5,14 @@ public class GameInstaller : MonoInstaller
 {
     [Header("Managers")]
     [SerializeField] private ObjectPoolManager objectPoolManager;
-    [SerializeField] private EffectFactory effectFactory;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private GridManager gridManager;
+
+    [Header("Factories")]
+    [SerializeField] private EffectFactory effectFactory;
+
+    [Header("Players")]
+    [SerializeField] private Player player;
 
     public override void InstallBindings()
     {
@@ -15,5 +20,6 @@ public class GameInstaller : MonoInstaller
         Container.Bind<EffectFactory>().FromInstance(effectFactory).AsSingle();
         Container.Bind<InputManager>().FromInstance(inputManager).AsSingle();
         Container.Bind<GridManager>().FromInstance(gridManager).AsSingle();
+        Container.Bind<Player>().FromInstance(player).AsSingle();
     }
 }

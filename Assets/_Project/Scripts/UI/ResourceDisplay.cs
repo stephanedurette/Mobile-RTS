@@ -8,10 +8,17 @@ public class ResourceDisplay : MonoBehaviour
     [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI costText;
 
-    public void SetResource(ResourceAmount amount)
+    public ResourceData ResourceData { get; private set; }
+
+    public void SetAmount(int amount)
     {
-        image.sprite = amount.Resource.Icon;
-        costText.text = amount.Cost.ToString();
+        costText.text = amount.ToString();
+    }
+
+    public void SetResource(ResourceData resource)
+    {
+        image.sprite = resource.Icon;
+        ResourceData = resource;
     }
 
     public void SetTextColor(Color color)
