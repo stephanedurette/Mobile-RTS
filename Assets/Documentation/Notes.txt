@@ -1,1 +1,17 @@
-use Zenject
+TODO
+
+placement (Chapter 11)
+
+display owned resources
+building buttons show needed resources, are greyed out and inactive when not enough resources
+click and drag to preview build location and grid squares //DONE
+on release
+	if invalid - go back to unit selection state
+	if valid
+		red X and green check appear
+		if user clicks elsewhere it begins dragging at that location
+		on X
+			go back to unit selection state
+		on Check
+			Place building
+			deduct resources
