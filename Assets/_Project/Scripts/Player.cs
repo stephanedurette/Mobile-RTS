@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     [Header("Events")]
-    [SerializeField] private UnityEvent<ResourceData, int> OnResourceAmountChanged;
+    [SerializeField] private UnityEvent<InventoryItemModel, int> OnResourceAmountChanged;
 
     private HashSet<Resource> resources;
 
@@ -15,22 +15,22 @@ public class Player : MonoBehaviour
         resources = new();
     }
 
-    public void SetResourceCount(ResourceData data, int amount)
+    public void SetResourceCount(InventoryItemModel data, int amount)
     {
         GetOrCreateResource(data).Amount = amount;
     }
 
-    public void AddResource(ResourceData data, int amount)
+    public void AddResource(InventoryItemModel data, int amount)
     {
         SetResourceCount(data, GetResourceCount(data) + amount);
     }
 
-    public int GetResourceCount(ResourceData resourceData)
+    public int GetResourceCount(InventoryItemModel resourceData)
     {
         return GetOrCreateResource(resourceData).Amount;
     }
 
-    private Resource GetOrCreateResource(ResourceData resourceData)
+    private Resource GetOrCreateResource(InventoryItemModel resourceData)
     {
         Resource r = resources.FirstOrDefault((r) => r.Data == resourceData);
         if (r == null)

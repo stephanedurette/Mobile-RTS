@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ActionButton : MonoBehaviour
 {
     [SerializeField] private Image actionImage;
-    [SerializeField] private ResourceList requiredResources;
+    [SerializeField] private InventoryView requiredResources;
 
     private Action action;
 

@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
+  m_fontSize: 44.75
   m_fontSizeBase: 4.55
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 7940603073753155311}
   - component: {fileID: 9007951658764876013}
   m_Layer: 0
-  m_Name: ResourceDisplay
+  m_Name: InventoryItemView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

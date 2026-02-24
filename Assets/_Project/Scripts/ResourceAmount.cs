@@ -3,7 +3,7 @@
 [Serializable]
 public struct ResourceAmount
 {
-    public ResourceData Resource;
+    public InventoryItemModel Resource;
     public int Amount;
 }
 

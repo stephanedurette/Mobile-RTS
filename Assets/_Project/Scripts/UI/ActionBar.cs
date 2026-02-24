@@ -26,7 +26,7 @@ public class ActionBar : MonoBehaviour
         Show(actions.Count > 0);
     }
 
-    public void OnResourceAmountChanged(ResourceData data, int amount)
+    public void OnResourceAmountChanged(InventoryItemModel data, int amount)
     {
 
     }

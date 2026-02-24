@@ -2,12 +2,12 @@ using System;
 
 public class Resource
 {
-    public Action<ResourceData, int> OnAmountChanged = delegate { };
+    public Action<InventoryItemModel, int> OnAmountChanged = delegate { };
 
     private int amount;
-    private ResourceData data;
+    private InventoryItemModel data;
 
-    public ResourceData Data => data;
+    public InventoryItemModel Data => data;
 
     public int Amount
     {
@@ -20,7 +20,7 @@ public class Resource
         }
     }
 
-    public Resource(int startingAmount, ResourceData resourceData)
+    public Resource(int startingAmount, InventoryItemModel resourceData)
     {
         amount = startingAmount;
         data = resourceData;
