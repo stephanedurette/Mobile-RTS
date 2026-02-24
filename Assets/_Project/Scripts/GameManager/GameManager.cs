@@ -9,7 +9,7 @@ public partial class GameManager : MonoBehaviour
     [SerializeField] private ResourceAmount[] playerStartingResources;
 
     [Header("Events")]
-    [SerializeField] private UnityEvent<List<Action>> OnActionListSelected;
+    [SerializeField] private UnityEvent<List<Action>, Player> OnActionListSelected;
     [SerializeField] private UnityEvent OnActionListCleared;
 
     private SelectionStateMachine selectionStateMachine;

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ActionButton : MonoBehaviour
 {
     [SerializeField] private Image actionImage;
+    [SerializeField] private ResourceList requiredResources;
 
     private Action action;
 
@@ -13,7 +14,23 @@ public class ActionButton : MonoBehaviour
     public Action Action
     {
         get { return action; }
-        set { action = value; actionImage.sprite = action.ActionIcon; }
+        set => SetAction(value);
+    }
+
+    private void SetAction(Action action)
+    {
+        this.action = action;
+        actionImage.sprite = action.ActionIcon;
+        if (Action is BuildAction buildAction)
+        {
+            foreach (var resource in buildAction.ResourceCosts) {
+                requiredResources.UpdateResourceAmount(resource.Resource, resource.Amount);
+            }
+            requiredResources.gameObject.SetActive(true);
+        } else
+        {
+            requiredResources.gameObject.SetActive(false);
+        }
     }
 
     public void OnClick()

@@ -8,11 +8,6 @@ public class ResourceList : MonoBehaviour
 
     private Dictionary<ResourceData, ResourceDisplay> resourceDisplaysDict;
 
-    private void Awake()
-    {
-        resourceDisplaysDict = new();
-    }
-
     public void UpdateResourceAmount(ResourceData resourceData, int amount)
     {
         GetOrCreateDisplay(resourceData).SetAmount(amount);
@@ -25,6 +20,8 @@ public class ResourceList : MonoBehaviour
 
     private ResourceDisplay GetOrCreateDisplay(ResourceData resourceData)
     {
+        resourceDisplaysDict ??= new();
+
         if (!resourceDisplaysDict.ContainsKey(resourceData)) { 
             ResourceDisplay firstInactiveDisplay = resourceDisplays.FirstOrDefault((r) => !r.gameObject.activeSelf);
             firstInactiveDisplay.SetResource(resourceData);

@@ -19,20 +19,45 @@ public class ActionBar : MonoBehaviour
         }
     }
 
-    public void UpdateActionBar(List<Action> actions)
+    public void UpdateActionBar(List<Action> actions, Player player)
     {
-        for (int i = 0; i < actionButtons.Count; i++) {
-            if (i >= actions.Count) { 
+        SetupActionButtons(actions);
+        SetActionButtonsActive(player);
+        Show(actions.Count > 0);
+    }
+
+    public void OnResourceAmountChanged(ResourceData data, int amount)
+    {
+
+    }
+
+    private void SetActionButtonsActive(Player player)
+    {
+        foreach (var button in actionButtons) { 
+            if (button.Action is BuildAction buildAction)
+            {
+
+            }
+        }
+    }
+
+    private void SetupActionButtons(List<Action> actions)
+    {
+        for (int i = 0; i < actionButtons.Count; i++)
+        {
+            if (i >= actions.Count)
+            {
                 actionButtons[i].gameObject.SetActive(false);
-            } else
+            }
+            else
             {
                 actionButtons[i].gameObject.SetActive(true);
                 actionButtons[i].Action = actions[i];
             }
         }
-
-        Show(actions.Count > 0);
     }
+
+    
 
     public void Show(bool show)
     {
