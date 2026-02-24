@@ -19,26 +19,9 @@ public class ActionBar : MonoBehaviour
         }
     }
 
-    public void UpdateActionBar(List<Action> actions, Player player)
-    {
-        SetupActionButtons(actions);
-        SetActionButtonsActive(player);
-        Show(actions.Count > 0);
-    }
-
     public void OnResourceAmountChanged(InventoryItemModel data, int amount)
     {
 
-    }
-
-    private void SetActionButtonsActive(Player player)
-    {
-        foreach (var button in actionButtons) { 
-            if (button.Action is BuildAction buildAction)
-            {
-
-            }
-        }
     }
 
     private void SetupActionButtons(List<Action> actions)

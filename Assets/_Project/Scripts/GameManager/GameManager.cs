@@ -5,11 +5,8 @@ using Zenject;
 
 public partial class GameManager : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] private ResourceAmount[] playerStartingResources;
-
     [Header("Events")]
-    [SerializeField] private UnityEvent<List<Action>, Player> OnActionListSelected;
+    [SerializeField] private UnityEvent<List<Action>> OnActionListSelected;
     [SerializeField] private UnityEvent OnActionListCleared;
 
     private SelectionStateMachine selectionStateMachine;
@@ -20,15 +17,13 @@ public partial class GameManager : MonoBehaviour
     private EffectFactory effectFactory;
     private InputManager inputManager;
     private GridManager gridManager;
-    private Player player;
 
     [Inject]
-    public void Construct(EffectFactory effectFactory, InputManager inputManager, GridManager gridManager, Player player)
+    public void Construct(EffectFactory effectFactory, InputManager inputManager, GridManager gridManager)
     {
         this.effectFactory = effectFactory;
         this.inputManager = inputManager;
         this.gridManager = gridManager;
-        this.player = player;
     }
 
     private void Awake()
@@ -43,15 +38,6 @@ public partial class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SetPlayerResources(playerStartingResources, player);
-    }
-
-    private void SetPlayerResources(ResourceAmount[] startingResources, Player player)
-    {
-        foreach (ResourceAmount startingResource in startingResources)
-        {
-            player.SetResourceCount(startingResource.Resource, startingResource.Amount);
-        }
     }
 
     private void Update()

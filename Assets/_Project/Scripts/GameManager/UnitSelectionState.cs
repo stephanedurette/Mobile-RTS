@@ -67,7 +67,7 @@ public partial class GameManager
         private void OnUnitSelected(Unit unit)
         {
             unit.Selected = true;
-            gameManager.OnActionListSelected?.Invoke(unit.Actions, gameManager.player);
+            gameManager.OnActionListSelected?.Invoke(unit.Actions);
         }
 
         private void OnUnitDeselected(Unit unit)

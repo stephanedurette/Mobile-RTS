@@ -20,7 +20,9 @@ public class InventoryView : MonoBehaviour
         this.inventory = inventory;
         foreach(var inventoryItem in inventory.Items)
         {
-            GetInactiveView().Bind(inventoryItem);
+            InventoryItemView newView = GetInactiveView();
+            newView.Bind(inventoryItem);
+            newView.gameObject.SetActive(true);
         }
     }
 

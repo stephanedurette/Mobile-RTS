@@ -21,16 +21,6 @@ public class ActionButton : MonoBehaviour
     {
         this.action = action;
         actionImage.sprite = action.ActionIcon;
-        if (Action is BuildAction buildAction)
-        {
-            foreach (var resource in buildAction.ResourceCosts) {
-                requiredResources.UpdateResourceAmount(resource.Resource, resource.Amount);
-            }
-            requiredResources.gameObject.SetActive(true);
-        } else
-        {
-            requiredResources.gameObject.SetActive(false);
-        }
     }
 
     public void OnClick()
