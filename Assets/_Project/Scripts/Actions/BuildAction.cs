@@ -8,8 +8,14 @@ public class BuildAction : Action
     [Header("Grid Placement")]
     public Vector2Int GridSize;
 
-    [Header("Resource Cost")]
-    public ResourceAmount[] ResourceCosts;
+    public override bool CanPerform(Inventory inventory)
+    {
+        if (ActionCost.Items.Count == 0) return true;
+
+        if(inventory.ContainsItems(ActionCost)) return true;
+
+        return false;
+    }
 
     public override void Execute(GameManager gameManager)
     {

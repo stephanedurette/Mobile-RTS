@@ -17,13 +17,9 @@ on release
 			deduct resources
 
 REFACTOR
-Use MVC for InventoryItem
-Use MVC for Inventory
-
-
-rename resourcelist to inventory
-rename resource to item
-
-Player is now PlayerInventory
-
 Use MVC for Actions
+	Scriptable Object is now ActionModel
+	Actions are classes that aren't monobehaviours, they belong to units
+	ActionView displays action information, actions may contain inventories
+
+Inventory is no longer a monobehaviour, it's a class owned by either Player OR Actions

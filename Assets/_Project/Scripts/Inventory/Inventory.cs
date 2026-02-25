@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -24,12 +26,42 @@ public class Inventory : MonoBehaviour
         items = new();
         foreach (var item in itemValueList.Items)
         {
-            InventoryItem newItem = new InventoryItem(item.ItemModel, item.StartingAmount);
+            InventoryItem newItem = new InventoryItem(item.ItemModel, item.Amount);
             newItem.OnCountChanged += (model, amount) => OnInventoryUpdated?.Invoke(this);
             items.Add(newItem);
         }
         OnInventoryInitialized?.Invoke(this);
     }
+
+    public bool ContainsItem(InventoryItemModel model, int amount)
+    {
+        InventoryItem foundItem = Items.First(x => x.Model == model);
+
+        if (foundItem == null) return false;
+        if (foundItem.Value < amount) return false;
+        
+        return true;
+
+    }
+
+    public bool ContainsItems(Inventory Other)
+    {
+        foreach(InventoryItem item in Other.Items)
+        {
+            if(!ContainsItem(item.Model, item.Value)) return false;
+        }
+        return true;
+    }
+
+    public bool ContainsItems(ItemValueList itemValues)
+    {
+        foreach (ItemValue item in itemValues.Items)
+        {
+            if (!ContainsItem(item.ItemModel, item.Amount)) return false;
+        }
+        return true;
+    }
+
 
     [Serializable]
     public class ItemValueList
@@ -42,6 +74,6 @@ public class Inventory : MonoBehaviour
     public class ItemValue
     {
         public InventoryItemModel ItemModel;
-        public int StartingAmount;
+        public int Amount;
     }
 }
