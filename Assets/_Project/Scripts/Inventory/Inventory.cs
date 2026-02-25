@@ -44,6 +44,15 @@ public class Inventory
 
     }
 
+    public bool ContainsItems(ItemValueList itemValueList)
+    {
+        foreach (ItemValue itemValue in itemValueList.Items)
+        {
+            if (!ContainsItem(itemValue.ItemModel, itemValue.Amount)) return false;
+        }
+        return true;
+    }
+
     public bool ContainsItems(Inventory Other)
     {
         foreach (InventoryItem item in Other.Items)
