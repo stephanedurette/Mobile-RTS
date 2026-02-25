@@ -1,12 +1,13 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public abstract class Action : ScriptableObject
+public class Action
 {
-    public Sprite ActionIcon;
-    public Inventory.ItemValueList ActionCost;
+    private ActionModel actionModel;
 
-    public abstract void Execute(GameManager gameManager);
+    public ActionModel ActionModel => actionModel;
 
-    public abstract bool CanPerform(Inventory inventory);
+    public Action(ActionModel actionModel)
+    {
+        this.actionModel = actionModel;
+    }
 }

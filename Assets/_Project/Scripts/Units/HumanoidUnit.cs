@@ -10,8 +10,10 @@ public class HumanoidUnit : Unit
     protected Animator animator;
     protected AIPawn aiPawn;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         animator = GetComponentInChildren<Animator>();
         aiPawn = GetComponent<AIPawn>();
     }

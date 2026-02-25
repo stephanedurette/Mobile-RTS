@@ -5,7 +5,7 @@ public partial class GameManager
 {
     private class BuildingSelectionState : SelectionState
     {
-        public BuildAction SelectedBuildAction;
+        public BuildActionModel SelectedBuildAction;
 
         private PlacementCursor placementCursor;
 

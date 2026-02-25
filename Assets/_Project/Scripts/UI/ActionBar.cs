@@ -24,7 +24,7 @@ public class ActionBar : MonoBehaviour
 
     }
 
-    private void SetupActionButtons(List<Action> actions)
+    private void SetupActionButtons(List<ActionModel> actions)
     {
         for (int i = 0; i < actionButtons.Count; i++)
         {

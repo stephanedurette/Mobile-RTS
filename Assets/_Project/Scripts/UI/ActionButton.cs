@@ -7,20 +7,20 @@ public class ActionButton : MonoBehaviour
     [SerializeField] private Image actionImage;
     [SerializeField] private InventoryView requiredResources;
 
-    private Action action;
+    private ActionModel action;
 
     [HideInInspector] public UnityEvent<ActionButton> OnActionButtonClicked;
 
-    public Action Action
+    public ActionModel Action
     {
         get { return action; }
         set => SetAction(value);
     }
 
-    private void SetAction(Action action)
+    private void SetAction(ActionModel action)
     {
         this.action = action;
-        actionImage.sprite = action.ActionIcon;
+        actionImage.sprite = action.Icon;
     }
 
     public void OnClick()

@@ -10,9 +10,11 @@ public class Unit : MonoBehaviour
     [SerializeField] protected Material defaultMaterial;
 
     [Header("Settings")]
-    [SerializeField] private List<Action> actions;
+    [SerializeField] private List<ActionModel> availableActions;
 
-    public List<Action> Actions => actions;
+    private HashSet<Action> actionList;
+
+    public HashSet<Action> ActionList => actionList;
 
     private bool selected;
 
@@ -20,5 +22,20 @@ public class Unit : MonoBehaviour
     {
         get { return selected; }
         set { selected = value; unitSprite.material = selected ? selectedMaterial : defaultMaterial; }
+    }
+
+    protected virtual void Awake()
+    {
+        InitializeActionList();
+    }
+
+    private void InitializeActionList()
+    {
+        ActionFactory actionFactory = new();
+        actionList = new HashSet<Action>();
+        foreach (var actionModel in availableActions)
+        {
+            actionList.Add(actionFactory.Create(actionModel));
+        }
     }
 }
