@@ -10,4 +10,6 @@ public class Action
     {
         this.actionModel = actionModel;
     }
+
+    public virtual bool CanExecute(Player player) { return true; }
 }
