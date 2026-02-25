@@ -22,4 +22,3 @@ Use MVC for Actions
 	Actions are classes that aren't monobehaviours, they belong to units
 	ActionView displays action information, actions may contain inventories
 
-Inventory is no longer a monobehaviour, it's a class owned by either Player OR Actions

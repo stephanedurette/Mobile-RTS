@@ -12,7 +12,7 @@ public class BuildAction : Action
     {
         if (ActionCost.Items.Count == 0) return true;
 
-        if(inventory.ContainsItems(ActionCost)) return true;
+        //if(inventory.ContainsItems(ActionCost)) return true;
 
         return false;
     }
