@@ -4,6 +4,8 @@ public class BuildAction : Action
 {
     private Inventory inventory;
 
+    public Inventory Inventory => inventory;
+
     public BuildAction(ActionModel actionModel) : base(actionModel)
     {
         inventory = new();

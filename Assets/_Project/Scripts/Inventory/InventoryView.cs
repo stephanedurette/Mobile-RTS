@@ -37,7 +37,7 @@ public class InventoryView : MonoBehaviour
         inventory = null;
     }
 
-    private void DisableAllViews()
+    public void DisableAllViews()
     {
         foreach (var itemView in inventoryItemViews) 
             itemView.gameObject.SetActive(false);

@@ -67,13 +67,13 @@ public partial class GameManager
         private void OnUnitSelected(Unit unit)
         {
             unit.Selected = true;
-            gameManager.OnActionListSelected?.Invoke(unit.Actions);
+            //gameManager.OnActionListSelected?.Invoke(unit.ActionList);
         }
 
         private void OnUnitDeselected(Unit unit)
         {
             unit.Selected = false;
-            gameManager.OnActionListCleared?.Invoke();
+            //gameManager.OnActionListCleared?.Invoke();
         }
     }
 }

@@ -5,10 +5,6 @@ using Zenject;
 
 public partial class GameManager : MonoBehaviour
 {
-    [Header("Events")]
-    [SerializeField] private UnityEvent<List<ActionModel>> OnActionListSelected;
-    [SerializeField] private UnityEvent OnActionListCleared;
-
     private SelectionStateMachine selectionStateMachine;
 
     private UnitSelectionState unitSelectionState;
@@ -51,7 +47,7 @@ public partial class GameManager : MonoBehaviour
 
     public void OnActionButtonClicked(ActionButton actionButton)
     {
-        actionButton.Action.Execute(this);
+        
     }
 
     public void OnBuildActionExecute(BuildActionModel buildAction) { 
