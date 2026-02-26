@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class BuildAction : Action
+public class BuildAction : UnitAction
 {
     private Inventory inventory;
 
     public Inventory Inventory => inventory;
 
-    public BuildAction(ActionModel actionModel) : base(actionModel)
+    public BuildAction(UnitActionModel actionModel) : base(actionModel)
     {
         inventory = new();
 

@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class Action
+public class UnitAction
 {
-    private ActionModel actionModel;
+    private UnitActionModel actionModel;
 
-    public ActionModel ActionModel => actionModel;
+    public UnitActionModel ActionModel => actionModel;
 
-    public Action(ActionModel actionModel)
+    public UnitAction(UnitActionModel actionModel)
     {
         this.actionModel = actionModel;
     }

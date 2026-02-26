@@ -5,26 +5,26 @@ using UnityEngine.UI;
 
 public class ActionButton : MonoBehaviour
 {
-    private ActionView actionView;
+    private UnitActionView actionView;
     private Button button;
     private EventTrigger eventTrigger;
 
     [HideInInspector] public UnityEvent<ActionButton> OnActionButtonClicked;
 
-    private Action action;
+    private UnitAction action;
     private Player player;
 
-    public Action Action => action;
+    public UnitAction Action => action;
     public Player Player => player;
 
     private void Awake()
     {
-        actionView = GetComponentInChildren<ActionView>();
+        actionView = GetComponentInChildren<UnitActionView>();
         button = GetComponentInChildren<Button>();
         eventTrigger = GetComponentInChildren<EventTrigger>();
     }
 
-    public void Bind(Action action, Player player)
+    public void Bind(UnitAction action, Player player)
     {
         this.action = action;
         this.player = player;

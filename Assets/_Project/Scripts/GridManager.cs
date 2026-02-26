@@ -8,7 +8,7 @@ public class GridManager : MonoBehaviour
 
     public Vector2 WorldPositionSnappedToGrid(Vector2 worldPosition) => WorldPosition(GridPosition(worldPosition));
 
-    private EffectFactory effectFactory;
+    private SpawnFactory effectFactory;
 
     private HashSet<GridSquareHighlight> activeHighlights;
 
@@ -18,7 +18,7 @@ public class GridManager : MonoBehaviour
     }
 
     [Inject]
-    public void Construct(EffectFactory effectFactory)
+    public void Construct(SpawnFactory effectFactory)
     {
         this.effectFactory = effectFactory;
     }

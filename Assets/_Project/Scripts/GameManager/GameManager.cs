@@ -17,12 +17,12 @@ public partial class GameManager : MonoBehaviour
     private UnitSelectionState unitSelectionState;
     private BuildingSelectionState buildingSelectionState;
 
-    private EffectFactory effectFactory;
+    private SpawnFactory effectFactory;
     private InputManager inputManager;
     private GridManager gridManager;
 
     [Inject]
-    public void Construct(EffectFactory effectFactory, InputManager inputManager, GridManager gridManager)
+    public void Construct(SpawnFactory effectFactory, InputManager inputManager, GridManager gridManager)
     {
         this.effectFactory = effectFactory;
         this.inputManager = inputManager;

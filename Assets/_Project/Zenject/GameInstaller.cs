@@ -9,12 +9,12 @@ public class GameInstaller : MonoInstaller
     [SerializeField] private GridManager gridManager;
 
     [Header("Factories")]
-    [SerializeField] private EffectFactory effectFactory;
+    [SerializeField] private SpawnFactory spawnFactory;
 
     public override void InstallBindings()
     {
         Container.Bind<ObjectPoolManager>().FromInstance(objectPoolManager).AsSingle();
-        Container.Bind<EffectFactory>().FromInstance(effectFactory).AsSingle();
+        Container.Bind<SpawnFactory>().FromInstance(spawnFactory).AsSingle();
         Container.Bind<InputManager>().FromInstance(inputManager).AsSingle();
         Container.Bind<GridManager>().FromInstance(gridManager).AsSingle();
     }

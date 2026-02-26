@@ -7,14 +7,14 @@ public class ActionFactory
 
     }
 
-    public Action Create(ActionModel actionModel)
+    public UnitAction Create(UnitActionModel actionModel)
     {
         switch (actionModel)
         {
             case BuildActionModel bAM:
                 return new BuildAction(bAM);
-            case ActionModel aM:
-                return new Action(aM);
+            case UnitActionModel aM:
+                return new UnitAction(aM);
             default:
                 return null;
         }

@@ -1,20 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ActionView : MonoBehaviour
+public class UnitActionView : MonoBehaviour
 {
     [SerializeField] private Image icon;
 
     private InventoryView inventoryView;
 
-    public Action BoundAction { get; private set; }
+    public UnitAction BoundAction { get; private set; }
 
     private void Awake()
     {
         inventoryView = GetComponentInChildren<InventoryView>();
     }
 
-    public void Bind(Action action)
+    public void Bind(UnitAction action)
     {
         BoundAction = action;
         icon.sprite = action.ActionModel.Icon;
@@ -29,7 +29,7 @@ public class ActionView : MonoBehaviour
         }
     }
 
-    public void Unbind(Action action) 
+    public void Unbind(UnitAction action) 
     {
         if (BoundAction is BuildAction)
         {

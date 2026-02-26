@@ -10,14 +10,14 @@ public class Unit : MonoBehaviour
     [SerializeField] protected Material defaultMaterial;
 
     [Header("Settings")]
-    [SerializeField] private List<ActionModel> availableActions;
+    [SerializeField] private List<UnitActionModel> availableActions;
     [SerializeField] private Player owner;
 
     public Player Owner => owner;
 
-    private List<Action> actionList;
+    private List<UnitAction> actionList;
 
-    public List<Action> ActionList => actionList;
+    public List<UnitAction> ActionList => actionList;
 
     private bool selected;
 
@@ -35,7 +35,7 @@ public class Unit : MonoBehaviour
     private void InitializeActionList()
     {
         ActionFactory actionFactory = new();
-        actionList = new List<Action>();
+        actionList = new List<UnitAction>();
         foreach (var actionModel in availableActions)
         {
             actionList.Add(actionFactory.Create(actionModel));

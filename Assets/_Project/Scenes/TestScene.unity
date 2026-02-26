@@ -199,7 +199,7 @@ MonoBehaviour:
   objectPoolManager: {fileID: 778381604}
   inputManager: {fileID: 1004840583}
   gridManager: {fileID: 863442713}
-  effectFactory: {fileID: 1565512886}
+  spawnFactory: {fileID: 1565512886}
 --- !u!1 &279979449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,7 +2492,7 @@ Tilemap:
       - {fileID: -6725503714359783815, guid: 48876ab9d7cae0944a9acb350036e2c1, type: 3}
       - {fileID: 4898973042930983391, guid: 48876ab9d7cae0944a9acb350036e2c1, type: 3}
       - {fileID: -3206363201524365965, guid: 48876ab9d7cae0944a9acb350036e2c1, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -17, y: -9, z: 0}
@@ -2846,7 +2846,7 @@ GameObject:
   - component: {fileID: 1565512885}
   - component: {fileID: 1565512886}
   m_Layer: 0
-  m_Name: EffectFactory
+  m_Name: SpawnFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2876,12 +2876,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1565512884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84be6f51348e5e74490cdd2f5d291014, type: 3}
+  m_Script: {fileID: 11500000, guid: bac8f9c2ad530bc49a9908a9f6ea9295, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EffectFactory
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnFactory
   moveEffectPrefab: {fileID: 6906369285977467818, guid: cde6a445d6e47af4dbb916335ae5a9d2, type: 3}
   placeEffectPrefab: {fileID: 3113423177627658848, guid: ef9a7f21ccd48f44c8cad7e12c5d6597, type: 3}
   gridSquareHighlightPrefab: {fileID: 4566742106043220152, guid: e46a6f08f44cd0d4fb2e1769dee33e68, type: 3}
+  confirmationWindowPrefab: {fileID: 7155950562438536628, guid: 20d65102faced154d900d9a0d7935885, type: 3}
 --- !u!1001 &1566682563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10071,7 +10072,7 @@ Tilemap:
       - {fileID: 8313790842667632763, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: 1024707267088520393, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: -5952541215844301678, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 8, y: -10, z: 0}
@@ -10554,7 +10555,7 @@ Tilemap:
       - {fileID: 8313790842667632763, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: 1024707267088520393, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: -5952541215844301678, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -14, y: -2, z: 0}

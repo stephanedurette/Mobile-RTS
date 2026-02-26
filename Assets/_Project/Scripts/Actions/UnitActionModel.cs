@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class ActionModel : ScriptableObject
+public abstract class UnitActionModel : ScriptableObject
 {
     public Sprite Icon;
     public Inventory.ItemValueList Cost;
