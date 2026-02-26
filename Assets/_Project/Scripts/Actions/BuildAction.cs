@@ -17,4 +17,9 @@ public class BuildAction : Action
     {
         return player.Inventory.ContainsItems(inventory);
     }
+
+    public override void Execute(GameManager gameManager)
+    {
+        gameManager.BeginBuildPlacement(this);
+    }
 }

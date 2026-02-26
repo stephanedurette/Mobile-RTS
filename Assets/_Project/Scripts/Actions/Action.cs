@@ -12,4 +12,8 @@ public class Action
     }
 
     public virtual bool CanExecute(Player player) { return true; }
+
+    public virtual void Execute(GameManager gameManager) { 
+        
+    }
 }

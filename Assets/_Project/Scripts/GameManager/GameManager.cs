@@ -54,16 +54,10 @@ public partial class GameManager : MonoBehaviour
 
     public void OnActionButtonClicked(ActionButton actionButton)
     {
-        switch (actionButton.Action) {
-            case BuildAction buildAction:
-                OnBuildActionExecute(buildAction);
-                break;
-            default:
-                break;
-        }
+        actionButton.Action.Execute(this);
     }
 
-    public void OnBuildActionExecute(BuildAction buildAction) { 
+    public void BeginBuildPlacement(BuildAction buildAction) { 
         buildingSelectionState.SelectedBuildAction = buildAction;
         selectionStateMachine.CurrentState = buildingSelectionState;
     }

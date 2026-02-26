@@ -135,8 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038738afc6675b745b0dfc3f73a7106a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActionButton
-  actionImage: {fileID: 6710938562598617057}
-  requiredResources: {fileID: 0}
   OnActionButtonClicked:
     m_PersistentCalls:
       m_Calls: []
@@ -177,10 +175,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 314907577785743280}
     m_Modifications:
-    - target: {fileID: 572584130626332451, guid: 4250ce41eea38c74b9c2182ff2bfd04b, type: 3}
-      propertyPath: m_fontSize
-      value: 5.05
-      objectReference: {fileID: 0}
     - target: {fileID: 2223403948536392844, guid: 4250ce41eea38c74b9c2182ff2bfd04b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -276,10 +270,6 @@ PrefabInstance:
     - target: {fileID: 3494519942606119260, guid: 4250ce41eea38c74b9c2182ff2bfd04b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4157305191726359590, guid: 4250ce41eea38c74b9c2182ff2bfd04b, type: 3}
-      propertyPath: m_fontSize
-      value: 5.05
       objectReference: {fileID: 0}
     - target: {fileID: 4740379457157748580, guid: 4250ce41eea38c74b9c2182ff2bfd04b, type: 3}
       propertyPath: m_Pivot.x
@@ -384,10 +374,6 @@ PrefabInstance:
     - target: {fileID: 4905136433322039559, guid: 4250ce41eea38c74b9c2182ff2bfd04b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5610424983740111997, guid: 4250ce41eea38c74b9c2182ff2bfd04b, type: 3}
-      propertyPath: m_fontSize
-      value: 5.05
       objectReference: {fileID: 0}
     - target: {fileID: 5977345862268331583, guid: 4250ce41eea38c74b9c2182ff2bfd04b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -499,14 +485,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4740379457157748580, guid: 4250ce41eea38c74b9c2182ff2bfd04b, type: 3}
   m_PrefabInstance: {fileID: 6255546719221359556}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6710938562598617057 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 860787346883583013, guid: 4250ce41eea38c74b9c2182ff2bfd04b, type: 3}
-  m_PrefabInstance: {fileID: 6255546719221359556}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
