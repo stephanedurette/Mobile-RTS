@@ -13,6 +13,8 @@ public partial class GameManager
 
         private bool isOnValidBuildPosition;
 
+        private ConfirmationWindow confirmationWindow;
+
         public BuildingSelectionState(GameManager gameManager) : base(gameManager) { }
 
         public override void OnCursorDown(Vector2 cursorPosition)
@@ -27,8 +29,6 @@ public partial class GameManager
                 
             } else
             {
-                placementCursor.gameObject.SetActive(false);
-                gameManager.gridManager.ClearHighlights();
                 gameManager.selectionStateMachine.CurrentState = gameManager.unitSelectionState;
             }
         }
@@ -41,7 +41,8 @@ public partial class GameManager
 
         public override void OnExit()
         {
-
+            placementCursor.gameObject.SetActive(false);
+            gameManager.gridManager.ClearHighlights();
         }
 
         public override void Update()
