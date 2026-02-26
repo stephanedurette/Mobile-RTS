@@ -11,10 +11,13 @@ public class Unit : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private List<ActionModel> availableActions;
+    [SerializeField] private Player owner;
 
-    private HashSet<Action> actionList;
+    public Player Owner => owner;
 
-    public HashSet<Action> ActionList => actionList;
+    private List<Action> actionList;
+
+    public List<Action> ActionList => actionList;
 
     private bool selected;
 
@@ -32,7 +35,7 @@ public class Unit : MonoBehaviour
     private void InitializeActionList()
     {
         ActionFactory actionFactory = new();
-        actionList = new HashSet<Action>();
+        actionList = new List<Action>();
         foreach (var actionModel in availableActions)
         {
             actionList.Add(actionFactory.Create(actionModel));

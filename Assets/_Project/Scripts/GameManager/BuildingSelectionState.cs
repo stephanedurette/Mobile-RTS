@@ -5,7 +5,7 @@ public partial class GameManager
 {
     private class BuildingSelectionState : SelectionState
     {
-        public BuildActionModel SelectedBuildAction;
+        public BuildAction SelectedBuildAction;
 
         private PlacementCursor placementCursor;
 
@@ -36,7 +36,7 @@ public partial class GameManager
         public override void OnEnter()
         {
             placementCursor = gameManager.effectFactory.CreatePlacementCursor(WorldPos(gameManager.inputManager.GetCursorPosition().Value));
-            placementCursor.Sprite = SelectedBuildAction.PlacementSprite;
+            placementCursor.Sprite = (SelectedBuildAction.ActionModel as BuildActionModel).PlacementSprite;
         }
 
         public override void OnExit()
@@ -52,7 +52,7 @@ public partial class GameManager
             if (worldPositionSnappedToGrid != lastGridSnappedPosition){
                 placementCursor.transform.position = worldPositionSnappedToGrid;
 
-                isOnValidBuildPosition = CanBuild(worldPositionSnappedToGrid, SelectedBuildAction.GridSize);
+                isOnValidBuildPosition = CanBuild(worldPositionSnappedToGrid, (SelectedBuildAction.ActionModel as BuildActionModel).GridSize);
 
                 UpdateGridHighlights(worldPositionSnappedToGrid, isOnValidBuildPosition);
 
@@ -63,7 +63,7 @@ public partial class GameManager
         private void UpdateGridHighlights(Vector2 position, bool validBuildPosition)
         {
             gameManager.gridManager.ClearHighlights();
-            gameManager.gridManager.HighlightSquares(position, SelectedBuildAction.GridSize, validBuildPosition ? Color.green : Color.red);
+            gameManager.gridManager.HighlightSquares(position, (SelectedBuildAction.ActionModel as BuildActionModel).GridSize, validBuildPosition ? Color.green : Color.red);
         }
 
         private bool CanBuild(Vector2 pos, Vector2Int buildingSize)

@@ -1015,6 +1015,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Builder
       objectReference: {fileID: 0}
+    - target: {fileID: 7989511149085755202, guid: 695f33d92b6ac1440a06eb40a549e43c, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 726717798}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1626,12 +1630,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d832311ffecd47c4fb636fbc7cdfb0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  startingInventory:
+  startingItems:
     items:
-    - ItemModel: {fileID: 11400000, guid: f11c8cee34cb940419c3d4c4ac49ed75, type: 2}
-      Amount: 101
     - ItemModel: {fileID: 11400000, guid: 0d601bcdfbdda8944b90e9b2163c2c81, type: 2}
-      Amount: 202
+      Amount: 2
+    - ItemModel: {fileID: 11400000, guid: f11c8cee34cb940419c3d4c4ac49ed75, type: 2}
+      Amount: 3
   OnInventoryInitialized:
     m_PersistentCalls:
       m_Calls:
@@ -1792,12 +1796,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31425e672eb3854894228ee57263f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  OnActionListSelected:
+  HumanPlayer: {fileID: 726717798}
+  OnPlayerUnitSelected:
     m_PersistentCalls:
-      m_Calls: []
-  OnActionListCleared:
+      m_Calls:
+      - m_Target: {fileID: 777684126}
+        m_TargetAssemblyTypeName: ActionBar, Assembly-CSharp
+        m_MethodName: OnPlayerUnitSelected
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnPlayerUnitDeselected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 777684126}
+        m_TargetAssemblyTypeName: ActionBar, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &839528221
 Transform:
   m_ObjectHideFlags: 0
@@ -2248,6 +2277,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 7989511149085755202, guid: 09f732b697b49c34e996bada5ba0a9a3, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 726717798}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2652,7 +2685,7 @@ Tilemap:
       - {fileID: -6725503714359783815, guid: 48876ab9d7cae0944a9acb350036e2c1, type: 3}
       - {fileID: 4898973042930983391, guid: 48876ab9d7cae0944a9acb350036e2c1, type: 3}
       - {fileID: -3206363201524365965, guid: 48876ab9d7cae0944a9acb350036e2c1, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 18, y: -11, z: 0}
@@ -2698,7 +2731,7 @@ Tilemap:
       - {fileID: -2664502254669432612, guid: e0ee3e1da14e2ff4291e92f7c6b82c4e, type: 3}
       - {fileID: 2339070538383146887, guid: e0ee3e1da14e2ff4291e92f7c6b82c4e, type: 3}
       - {fileID: 1794980880798166544, guid: e0ee3e1da14e2ff4291e92f7c6b82c4e, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 16, y: -9, z: 0}
@@ -2767,7 +2800,7 @@ Tilemap:
       - {fileID: -250132882659222368, guid: 69a106c5e2a9d6d4c86e176806f6d2cb, type: 3}
       - {fileID: 6472350163185039618, guid: 69a106c5e2a9d6d4c86e176806f6d2cb, type: 3}
       - {fileID: 3179589680329323135, guid: 69a106c5e2a9d6d4c86e176806f6d2cb, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 18, y: -1, z: 0}
@@ -9886,7 +9919,7 @@ Tilemap:
       - {fileID: 8313790842667632763, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: 1024707267088520393, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: -5952541215844301678, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: -10, z: 0}
@@ -10438,7 +10471,7 @@ Tilemap:
       - {fileID: 8313790842667632763, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: 1024707267088520393, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: -5952541215844301678, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 14, y: -9, z: 0}
@@ -10507,7 +10540,7 @@ Tilemap:
       - {fileID: 8313790842667632763, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: 1024707267088520393, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
       - {fileID: -5952541215844301678, guid: 842a3d816abb60c49bbe4feb832821bd, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -14, y: -7, z: 0}

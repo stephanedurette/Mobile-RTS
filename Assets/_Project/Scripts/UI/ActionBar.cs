@@ -19,28 +19,24 @@ public class ActionBar : MonoBehaviour
         }
     }
 
-    public void OnResourceAmountChanged(InventoryItemModel data, int amount)
+    public void OnPlayerUnitSelected(Unit selectedUnit)
     {
+        Show(selectedUnit.ActionList.Count > 0);
 
-    }
-
-    private void SetupActionButtons(List<ActionModel> actions)
-    {
         for (int i = 0; i < actionButtons.Count; i++)
         {
-            if (i >= actions.Count)
+            if (i >= selectedUnit.ActionList.Count)
             {
                 actionButtons[i].gameObject.SetActive(false);
+                actionButtons[i].Unbind();
             }
             else
             {
                 actionButtons[i].gameObject.SetActive(true);
-                actionButtons[i].Action = actions[i];
+                actionButtons[i].Bind(selectedUnit.ActionList[i], selectedUnit.Owner);
             }
         }
     }
-
-    
 
     public void Show(bool show)
     {

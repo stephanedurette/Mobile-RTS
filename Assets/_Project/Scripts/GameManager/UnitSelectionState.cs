@@ -67,13 +67,19 @@ public partial class GameManager
         private void OnUnitSelected(Unit unit)
         {
             unit.Selected = true;
-            //gameManager.OnActionListSelected?.Invoke(unit.ActionList);
+            if (unit.Owner == gameManager.HumanPlayer)
+            {
+                gameManager.OnPlayerUnitSelected?.Invoke(unit);
+            }
         }
 
         private void OnUnitDeselected(Unit unit)
         {
             unit.Selected = false;
-            //gameManager.OnActionListCleared?.Invoke();
+            if (unit.Owner == gameManager.HumanPlayer)
+            {
+                gameManager.OnPlayerUnitDeselected?.Invoke(unit);
+            }
         }
     }
 }

@@ -12,6 +12,9 @@ public class ActionButton : MonoBehaviour
     private Action action;
     private Player player;
 
+    public Action Action => action;
+    public Player Player => player;
+
     private void Awake()
     {
         actionView = GetComponentInChildren<ActionView>();

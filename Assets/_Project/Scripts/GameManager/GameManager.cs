@@ -5,6 +5,13 @@ using Zenject;
 
 public partial class GameManager : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private Player HumanPlayer;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent<Unit> OnPlayerUnitSelected;
+    [SerializeField] private UnityEvent<Unit> OnPlayerUnitDeselected;
+
     private SelectionStateMachine selectionStateMachine;
 
     private UnitSelectionState unitSelectionState;
@@ -47,10 +54,16 @@ public partial class GameManager : MonoBehaviour
 
     public void OnActionButtonClicked(ActionButton actionButton)
     {
-        
+        switch (actionButton.Action) {
+            case BuildAction buildAction:
+                OnBuildActionExecute(buildAction);
+                break;
+            default:
+                break;
+        }
     }
 
-    public void OnBuildActionExecute(BuildActionModel buildAction) { 
+    public void OnBuildActionExecute(BuildAction buildAction) { 
         buildingSelectionState.SelectedBuildAction = buildAction;
         selectionStateMachine.CurrentState = buildingSelectionState;
     }
