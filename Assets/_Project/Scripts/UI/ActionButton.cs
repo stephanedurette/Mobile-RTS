@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ActionButton : MonoBehaviour
 {
     private ActionView actionView;
     private Button button;
+    private EventTrigger eventTrigger;
 
     [HideInInspector] public UnityEvent<ActionButton> OnActionButtonClicked;
 
@@ -19,6 +21,7 @@ public class ActionButton : MonoBehaviour
     {
         actionView = GetComponentInChildren<ActionView>();
         button = GetComponentInChildren<Button>();
+        eventTrigger = GetComponentInChildren<EventTrigger>();
     }
 
     public void Bind(Action action, Player player)
@@ -37,10 +40,13 @@ public class ActionButton : MonoBehaviour
     {
         if (action is BuildAction buildAction)
         {
-            button.interactable = buildAction.CanExecute(player);
+            bool canExecute = buildAction.CanExecute(player);
+            button.interactable = canExecute;
+            eventTrigger.enabled = canExecute;
         } else
         {
             button.interactable = true;
+            eventTrigger.enabled = true;
         }
     }
 
