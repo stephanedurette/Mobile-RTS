@@ -4,23 +4,58 @@ using UnityEngine.UI;
 
 public class ActionButton : MonoBehaviour
 {
-    [SerializeField] private Image actionImage;
-    [SerializeField] private InventoryView requiredResources;
-
-    private ActionModel action;
+    private ActionView actionView;
+    private Button button;
 
     [HideInInspector] public UnityEvent<ActionButton> OnActionButtonClicked;
 
-    public ActionModel Action
+    private Action action;
+    private Player player;
+
+    private void Awake()
     {
-        get { return action; }
-        set => SetAction(value);
+        actionView = GetComponentInChildren<ActionView>();
+        button = GetComponentInChildren<Button>();
     }
 
-    private void SetAction(ActionModel action)
+    public void Bind(Action action, Player player)
     {
         this.action = action;
-        actionImage.sprite = action.Icon;
+        this.player = player;
+
+        actionView.Bind(action);
+
+        SetButtonAvailability();
+        player.Inventory.OnUpdated += OnPlayerInventoryUpdated;
+        //set resource text red if not enough and listen for this
+    }
+
+    private void SetButtonAvailability()
+    {
+        if (action is BuildAction buildAction)
+        {
+            button.interactable = buildAction.CanExecute(player);
+        } else
+        {
+            button.interactable = true;
+        }
+    }
+
+    private void OnPlayerInventoryUpdated(Inventory inventory)
+    {
+        SetButtonAvailability();
+    }
+
+    public void Unbind()
+    {
+        if (player != null) {
+            player.Inventory.OnUpdated -= OnPlayerInventoryUpdated;
+        }
+
+        action = null;
+        player = null;
+
+        actionView.Unbind(action);
     }
 
     public void OnClick()
