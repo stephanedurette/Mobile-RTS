@@ -15,6 +15,6 @@ public class BuildAction : Action
 
     public override bool CanExecute(Player player)
     {
-        return inventory.ContainsItems(player.Inventory);
+        return player.Inventory.ContainsItems(inventory);
     }
 }
