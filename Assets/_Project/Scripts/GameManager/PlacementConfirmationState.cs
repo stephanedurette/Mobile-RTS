@@ -49,7 +49,7 @@ public partial class GameManager
         private void OnConfirmButtonClicked()
         {
             Debug.Log("placement confirmed");
-            //remove currency
+            gameManager.HumanPlayer.Inventory.RemoveInventory(SelectedBuildAction.Inventory);
             confirmationWindow.gameObject.SetActive(false);
         }
 
