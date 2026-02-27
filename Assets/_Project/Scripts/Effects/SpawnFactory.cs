@@ -22,9 +22,11 @@ public class SpawnFactory : MonoBehaviour
         this.objectPoolManager = objectPoolManager;
     }
 
-    public PlacementCursor CreatePlacementCursor(Vector2 position)
+    public PlacementCursor CreatePlacementCursor(Vector2 position, BuildAction buildAction)
     {
-        return objectPoolManager.SpawnObject<PlacementCursor>(placeEffectPrefab, position);
+        var obj = objectPoolManager.SpawnObject<PlacementCursor>(placeEffectPrefab, position);
+        obj.Sprite = buildAction.BuildActionModel.PlacementSprite;
+        return obj;
     }
 
     public SelectionCursor CreateSelectionCursor(Vector2 position)
@@ -40,7 +42,7 @@ public class SpawnFactory : MonoBehaviour
     }
 
     public ConfirmationWindow CreateConfirmationWindow(Vector2 position, UnityAction onConfirm, UnityAction onCancel) {
-        var obj = objectPoolManager.SpawnObject<ConfirmationWindow>(confirmationWindowPrefab, position);
+        var obj = objectPoolManager.SpawnUIObject<ConfirmationWindow>(confirmationWindowPrefab, position);
         obj.Bind(onConfirm, onCancel);
         return obj;
     }

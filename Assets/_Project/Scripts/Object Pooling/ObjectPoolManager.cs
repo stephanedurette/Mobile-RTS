@@ -10,6 +10,8 @@ public class ObjectPoolManager : MonoBehaviour
     private Dictionary<GameObject, ObjectPool<GameObject>> objectPools;
     private Dictionary<GameObject, Transform> spawnParentTransforms;
 
+    [SerializeField] private RectTransform uiParentTransform;
+
     private void Awake()
     {
         objectPools = new();
@@ -39,6 +41,35 @@ public class ObjectPoolManager : MonoBehaviour
 
         //Set Position
         spawnedObject.transform.position = position;
+
+        //Assign Poolable
+        if (!spawnedObject.TryGetComponent(out PoolableObject _))
+        {
+            PoolableObject poolable = spawnedObject.AddComponent<PoolableObject>();
+            poolable.Pool = objectPools[objectToSpawn];
+        }
+
+        return spawnedObject.GetComponent<T>();
+    }
+
+    public T SpawnUIObject<T>(GameObject objectToSpawn, Vector3 position)
+    {
+        GameObject objectSourcePrefab = PrefabUtility.GetCorrespondingObjectFromOriginalSource(objectToSpawn);
+
+        if (!objectPools.ContainsKey(objectSourcePrefab))
+        {
+            //Initialize Pool
+            objectPools.Add(objectSourcePrefab, InitializePool(objectSourcePrefab));
+        }
+
+        //Spawn
+        GameObject spawnedObject = objectPools[objectToSpawn].Get();
+
+        //Set Transform
+        spawnedObject.GetComponent<RectTransform>().SetParent(uiParentTransform, false);
+
+        //Set Position
+        spawnedObject.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(position);
 
         //Assign Poolable
         if (!spawnedObject.TryGetComponent(out PoolableObject _))
