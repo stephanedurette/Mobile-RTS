@@ -20,8 +20,13 @@ public class ConfirmationWindow : MonoBehaviour
 
     public void Unbind()
     {
-        confirmButton.onClick.RemoveListener(onConfirmSelected);
-        cancelButton.onClick.RemoveListener(onCancelSelected);
+        if (onConfirmSelected == null) return;
+
+        confirmButton.onClick?.RemoveListener(onConfirmSelected);
+        cancelButton.onClick?.RemoveListener(onCancelSelected);
+
+        onCancelSelected = null;
+        onConfirmSelected = null;
     }
 
     private void OnDisable()

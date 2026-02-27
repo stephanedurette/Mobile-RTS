@@ -16,6 +16,7 @@ public partial class GameManager : MonoBehaviour
 
     private UnitSelectionState unitSelectionState;
     private BuildingPlacementState buildingPlacementState;
+    private PlacementConfirmationState placementConfirmationState;
 
     private SpawnFactory effectFactory;
     private InputManager inputManager;
@@ -35,6 +36,7 @@ public partial class GameManager : MonoBehaviour
 
         unitSelectionState = new(this);
         buildingPlacementState = new(this);
+        placementConfirmationState = new(this);
 
         gameStateMachine.CurrentState = unitSelectionState;
     }

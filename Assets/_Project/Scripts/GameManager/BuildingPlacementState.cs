@@ -24,7 +24,8 @@ public partial class GameManager
         {
             if (isOnValidBuildPosition)
             {
-                
+                gameManager.placementConfirmationState.SelectedBuildAction = SelectedBuildAction;
+                gameManager.gameStateMachine.CurrentState = gameManager.placementConfirmationState;
             } else
             {
                 gameManager.gameStateMachine.CurrentState = gameManager.unitSelectionState;
@@ -33,8 +34,7 @@ public partial class GameManager
 
         public override void OnEnter()
         {
-            placementCursor = gameManager.effectFactory.CreatePlacementCursor(WorldCursorPosition);
-            placementCursor.Sprite = SelectedBuildAction.BuildActionModel.PlacementSprite;
+            placementCursor = gameManager.effectFactory.CreatePlacementCursor(WorldCursorPosition, SelectedBuildAction);
         }
 
         public override void OnExit()
