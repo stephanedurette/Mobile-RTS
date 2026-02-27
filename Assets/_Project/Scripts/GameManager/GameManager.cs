@@ -12,10 +12,10 @@ public partial class GameManager : MonoBehaviour
     [SerializeField] private UnityEvent<Unit> OnPlayerUnitSelected;
     [SerializeField] private UnityEvent<Unit> OnPlayerUnitDeselected;
 
-    private SelectionStateMachine selectionStateMachine;
+    private GameStateMachine gameStateMachine;
 
     private UnitSelectionState unitSelectionState;
-    private BuildingSelectionState buildingSelectionState;
+    private BuildingPlacementState buildingPlacementState;
 
     private SpawnFactory effectFactory;
     private InputManager inputManager;
@@ -31,12 +31,12 @@ public partial class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        selectionStateMachine = new();
+        gameStateMachine = new();
 
         unitSelectionState = new(this);
-        buildingSelectionState = new(this);
+        buildingPlacementState = new(this);
 
-        selectionStateMachine.CurrentState = unitSelectionState;
+        gameStateMachine.CurrentState = unitSelectionState;
     }
 
     private void Start()
@@ -45,12 +45,12 @@ public partial class GameManager : MonoBehaviour
 
     private void Update()
     {
-        selectionStateMachine.Update();
+        gameStateMachine.Update();
     }
 
-    public void OnCursorDown(Vector2 cursorPos) => selectionStateMachine.OnCursorDown(cursorPos);
+    public void OnCursorDown(Vector2 cursorPos) => gameStateMachine.OnCursorDown(cursorPos);
 
-    public void OnCursorUp(Vector2 cursorPos) => selectionStateMachine.OnCursorUp(cursorPos);
+    public void OnCursorUp(Vector2 cursorPos) => gameStateMachine.OnCursorUp(cursorPos);
 
     public void OnActionButtonClicked(ActionButton actionButton)
     {
@@ -58,7 +58,7 @@ public partial class GameManager : MonoBehaviour
     }
 
     public void BeginBuildPlacement(BuildAction buildAction) { 
-        buildingSelectionState.SelectedBuildAction = buildAction;
-        selectionStateMachine.CurrentState = buildingSelectionState;
+        buildingPlacementState.SelectedBuildAction = buildAction;
+        gameStateMachine.CurrentState = buildingPlacementState;
     }
 }

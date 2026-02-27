@@ -2,11 +2,11 @@
 
 public partial class GameManager
 {
-    private abstract class SelectionState
+    private abstract class GameState
     {
         protected GameManager gameManager;
 
-        public SelectionState(GameManager gameManager)
+        public GameState(GameManager gameManager)
         {
             this.gameManager = gameManager;
         }
@@ -21,6 +21,8 @@ public partial class GameManager
         public abstract void OnExit();
 
         public static Vector2 WorldPos(Vector2 cursorPos) => Camera.main.ScreenToWorldPoint(cursorPos);
+
+        public Vector2 WorldCursorPosition => WorldPos(gameManager.inputManager.GetCursorPosition().Value);
 
         public static Collider2D[] GetHits(Vector2 worldPos) => Physics2D.OverlapCircleAll(worldPos, SelectionRadius);
 

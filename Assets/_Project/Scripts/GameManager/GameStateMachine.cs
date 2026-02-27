@@ -2,11 +2,11 @@
 
 public partial class GameManager
 {
-    private class SelectionStateMachine
+    private class GameStateMachine
     {
-        private SelectionState currentState;
+        private GameState currentState;
 
-        public SelectionState CurrentState
+        public GameState CurrentState
         {
             get { return currentState; }
             set

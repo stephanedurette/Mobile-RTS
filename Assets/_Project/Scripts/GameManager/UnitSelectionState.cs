@@ -3,7 +3,7 @@ using Zenject;
 
 public partial class GameManager
 {
-    private class UnitSelectionState : SelectionState
+    private class UnitSelectionState : GameState
     {
 
         private Unit selectedUnit;
@@ -25,8 +25,7 @@ public partial class GameManager
 
         public override void OnCursorUp(Vector2 cursorPosition)
         {
-            Vector2 worldPosition = WorldPos(cursorPosition);
-            var hits = GetHits(worldPosition);
+            var hits = GetHits(WorldCursorPosition);
 
             if (ContainsComponentOfType<Unit>(hits, out var unit))
             {
@@ -43,7 +42,7 @@ public partial class GameManager
 
             if (ContainsComponentOfType<Walkable>(hits, out var _))
             {
-                OnWalkableSelected(worldPosition);
+                OnWalkableSelected(WorldCursorPosition);
                 return;
             }
         }

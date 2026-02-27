@@ -6,6 +6,8 @@ public class BuildAction : UnitAction
 
     public Inventory Inventory => inventory;
 
+    public BuildActionModel BuildActionModel => ActionModel as BuildActionModel;
+
     public BuildAction(UnitActionModel actionModel) : base(actionModel)
     {
         inventory = new();
