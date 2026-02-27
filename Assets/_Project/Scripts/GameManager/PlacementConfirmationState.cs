@@ -15,7 +15,12 @@ public partial class GameManager
 
         public override void OnCursorDown(Vector2 cursorPosition)
         {
-            //var hits = GetHits(WorldCursorPosition);
+            var hits = GetHits(WorldCursorPosition);
+            if (!ContainsComponentOfType<SelectionCursor>(hits, out _))
+            {
+                gameManager.buildingPlacementState.SelectedBuildAction = SelectedBuildAction;
+                gameManager.gameStateMachine.CurrentState = gameManager.buildingPlacementState;
+            }
         }
 
         public override void OnCursorUp(Vector2 cursorPosition)
@@ -25,7 +30,7 @@ public partial class GameManager
 
         public override void OnEnter()
         {
-            placementCursor = gameManager.effectFactory.CreatePlacementCursor(WorldCursorPosition, SelectedBuildAction);
+            placementCursor = gameManager.effectFactory.CreatePlacementCursor(gameManager.gridManager.WorldPositionSnappedToGrid(WorldCursorPosition), SelectedBuildAction);
 
             confirmationWindow = gameManager.effectFactory.CreateConfirmationWindow(WorldCursorPosition, OnConfirmButtonClicked, OnCancelButtonClicked);
         }
