@@ -64,7 +64,8 @@ public class ActionButton : MonoBehaviour
         action = null;
         player = null;
 
-        actionView.Unbind(action);
+        if (actionView != null) 
+            actionView.Unbind(action);
     }
 
     public void OnClick()
