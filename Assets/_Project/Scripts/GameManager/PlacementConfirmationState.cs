@@ -15,6 +15,8 @@ public partial class GameManager
 
         public override void OnCursorDown(Vector2 cursorPosition)
         {
+            if (gameManager.inputManager.PointerOverUI()) return;
+
             var hits = GetHits(WorldCursorPosition);
             if (!ContainsComponentOfType<SelectionCursor>(hits, out _))
             {

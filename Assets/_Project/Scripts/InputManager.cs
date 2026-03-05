@@ -72,19 +72,15 @@ public class InputManager : MonoBehaviour
 
     private void OnInputDown(Vector2 inputPosition)
     {
-        if (PointerOverUI()) return;
-
         OnCursorDown?.Invoke(inputPosition);
     }
 
     private void OnInputUp(Vector2 inputPosition) 
     {
-        if (PointerOverUI()) return;
-
         OnCursorUp?.Invoke(inputPosition);
     }
 
-    private bool PointerOverUI()
+    public bool PointerOverUI()
     {
         switch (inputType)
         {

@@ -25,6 +25,8 @@ public partial class GameManager
 
         public override void OnCursorUp(Vector2 cursorPosition)
         {
+            if (gameManager.inputManager.PointerOverUI()) return;
+
             var hits = GetHits(WorldCursorPosition);
 
             if (ContainsComponentOfType<Unit>(hits, out var unit))

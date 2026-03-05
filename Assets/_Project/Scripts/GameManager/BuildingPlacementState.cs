@@ -22,7 +22,7 @@ public partial class GameManager
 
         public override void OnCursorUp(Vector2 cursorPosition)
         {
-            if (isOnValidBuildPosition)
+            if (isOnValidBuildPosition && !gameManager.inputManager.PointerOverUI())
             {
                 gameManager.placementConfirmationState.SelectedBuildAction = SelectedBuildAction;
                 gameManager.gameStateMachine.CurrentState = gameManager.placementConfirmationState;
